@@ -14,4 +14,4 @@ Edit the "Makefile" file and add the BSP layer to it:
 +	$(CURDIR)/dmm-bsp \
 	$(CURDIR)/meta-vuplus \
 
-Remove the "/meta-dream/image_types_nfi.bbclass" file because it doesn't support "jffs2nfi" images.
+Remove the "/meta-dream/classes/image_types_nfi.bbclass" file because it doesn't support "jffs2nfi" images.
