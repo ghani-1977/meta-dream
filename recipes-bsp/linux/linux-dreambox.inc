@@ -12,20 +12,6 @@ PACKAGES_DYNAMIC = "kernel-*"
 # the kernel here, so that it is known that the kernel has them built in.
 KERNEL_BUILTIN_MODULES = "kernel-module-block2mtd"
 
-KERNEL_BUILTIN_MODULES_dm8000 = "\
-	kernel-module-aes-generic \
-	kernel-module-block2mtd \
-	kernel-module-crc32c \
-	kernel-module-fuse \
-	kernel-module-mac80211 \
-	kernel-module-cfg80211 \
-	kernel-module-ath \
-	kernel-module-ath5k \
-	kernel-module-sr-mod \
-	kernel-module-isofs \
-	kernel-module-udf \
-	kernel-module-stv0299 \
-	"
 KERNEL_BUILTIN_MODULES_dm800se = "\
 	kernel-module-block2mtd \
 	kernel-module-stv0299 \
@@ -48,7 +34,6 @@ RPROVIDES_kernel-base = "kernel-${KERNEL_VERSION}"
 RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION} ${KERNEL_BUILTIN_MODULES}"
 
 USB_ROOT = "/dev/sdb2"
-USB_ROOT_dm8000 = "/dev/sdf2"
 
 do_install_append() {
         ${STRIP} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
