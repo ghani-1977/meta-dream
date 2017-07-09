@@ -6,6 +6,8 @@ PRIORITY = "required"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 PR = "r20"
 
+MD5SUM = "${@d.getVarFlag('SRC_URI', 'dm7080.md5sum', True)}"
+
 SRC_URI = "http://dreamboxupdate.com/download/opendreambox/2.2.0/dreambox-secondstage/${PV}/${MACHINE}/${MD5SUM}/dreambox-secondstage_${PV}_${MACHINE}.tar.xz;name=${MACHINE}"
 
 PACKAGES = "${PN}"
