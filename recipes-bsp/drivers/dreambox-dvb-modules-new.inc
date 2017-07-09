@@ -5,6 +5,8 @@ DEPENDS += "virtual/kernel"
 PRIORITY = "required"
 INC_PR = "r7"
 
+
+
 DREAMBOX_DVB_MODULES_MIRROR ?= "http://dreamboxupdate.com/download/opendreambox/2.5.0/dreambox-dvb-modules/${KV}-${MACHINE}-${DRIVERDATE}/${MACHINE}/${MD5SUM}"
 
 SRC_URI = "${DREAMBOX_DVB_MODULES_MIRROR}/dreambox-dvb-modules_${KV}-${MACHINE}-${DRIVERDATE}_${MACHINE}.tar.xz;name=${MACHINE}"
@@ -96,6 +98,7 @@ FILES_${PN}-stb-core = "${sysconfdir}/modules-load.d/01-${BPN}-stb-core.conf \
 # precompiled modules depend on a specific version.
 DM_LOCALVERSION = "${@'-'.join('${PV}'.split('-')[:-1])}-${MACHINE}"
 DRIVERDATE = "${@'${PV}'.split('-')[-1]}"
+MD5SUM = "${@d.getVarFlag('SRC_URI', 'dm7080.md5sum', True)}"
 
 pkg_postinst_${PN} () {
 if [ -z "$D" ]; then
