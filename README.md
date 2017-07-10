@@ -16,7 +16,7 @@ Now edit the "Makefile" file and add the BSP layer to it:
 	$(CURDIR)/meta-dream \
 +	$(CURDIR)/dmm-bsp \
 	$(CURDIR)/meta-vuplus \
-``
+```
 Experimental machines(Not yet ready!):
 ```
 dm500hdv2
