@@ -30,16 +30,16 @@ do_configure_prepend() {
 require linux-dreambox_3.4.inc
 require linux-extra-image.inc
 
-CMDLINE = "${@bb.utils.contains('MACHINE', 'dm520', \
-    'bmem=192M@64M console=ttyS0,1000000 ubi.mtd=rootfs root=ubi0:dreambox-rootfs rootfstype=ubifs rw', \
-    'bmem=512M@512M memc1=768M console=ttyS0,1000000 root=/dev/mmcblk0p1 rootwait rootfstype=ext4', d)} \
-"
+CMDLINE_dm520 = "bmem=192M@64M console=ttyS0,1000000 ubi.mtd=rootfs root=ubi0:dreambox-rootfs rootfstype=ubifs rw"
+CMDLINE = "bmem=512M@512M memc1=768M console=ttyS0,1000000 root=/dev/mmcblk0p1 rootwait rootfstype=ext4"
 
 BRCM_PATCHLEVEL = "4.0"
 
 LINUX_VERSION = "${PV}-${BRCM_PATCHLEVEL}-${MACHINE}"
-KERNEL_IMAGETYPE = "${@bb.utils.contains('MACHINE', 'dm520', 'vmlinux.gz', 'vmlinux.bin', d)}"
-KERNEL_IMAGETYPES = "${@bb.utils.contains('MACHINE', 'dm520', '', 'vmlinux.gz', d)}"
+KERNEL_IMAGETYPE_dm520 = "vmlinux.gz"
+KERNEL_IMAGETYPE = "vmlinux.bin"
+KERNEL_IMAGETYPES_dm520 = ""
+KERNEL_IMAGETYPES = "vmlinux.gz"
 
 KERNEL_ENABLE_CGROUPS = "1"
 
