@@ -1,10 +1,14 @@
-Dreambox BSP layer for dm500hd(v1), dm800se(v1) and dm7020hd(v1). All models will be available soon!
-
+Dreambox BSP layer for:
+```
+dm500hd
+dm800se
+dm7020hd
+```
 How does it work? Simply with PLi's OE!
 
 Use https://github.com/OpenPLi/openpli-oe-core as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
-git submodule add https://github.com/Hains/dmm-bsp.git
+git submodule add https://github.com/DMM-PLi/dmm-bsp.git
 ```
 Now edit the "Makefile" file and add the BSP layer to it:
 ```
@@ -12,7 +16,7 @@ Now edit the "Makefile" file and add the BSP layer to it:
 	$(CURDIR)/meta-dream \
 +	$(CURDIR)/dmm-bsp \
 	$(CURDIR)/meta-vuplus \
-```
+``
 Experimental machines(Not yet ready!):
 ```
 dm500hdv2
@@ -24,4 +28,4 @@ dm900
 dm7020hdv2
 dm7080
 ```
-We're independent so if you think you can help you're welcome to send us merge requests :).
+We're independent so if you think you can help you're welcome to send us merge requests.
