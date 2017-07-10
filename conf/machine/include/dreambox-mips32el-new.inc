@@ -1,4 +1,4 @@
-# dreambox-mips32el.inc
+# dreambox-mips32el-new.inc
 
 TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el"
