@@ -1,10 +1,14 @@
+inherit image_types
+
 IMAGE_CMD_jffs2nfi = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
-		--compression-mode=none \
+		--disable-compressor=lzo \
+		--compression-mode=size \
 		--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
 		${EXTRA_IMAGECMD}; \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
+	printf '/dev/mtdblock2\t/boot\t\tjffs2\tro\t\t\t\t0 0\n' >> ${IMAGE_ROOTFS}/etc/fstab; \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS} \
 		--disable-compressor=lzo \
@@ -18,13 +22,45 @@ IMAGE_CMD_jffs2nfi = " \
 		> ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.nfi; \
 "
 
+IMAGE_CMD_sum.jffs2nfi = " \
+	mkfs.jffs2 \
+		--root=${IMAGE_ROOTFS}/boot \
+		--disable-compressor=lzo \
+		--compression-mode=size \
+		--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
+		${EXTRA_IMAGECMD}; \
+	sumtool \
+		-i ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
+		-o ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.sum.jffs2 \
+		${EXTRA_IMAGECMD}; \
+	rm -rf ${IMAGE_ROOTFS}/boot/*; \
+	printf '/dev/mtdblock2\t/boot\t\tjffs2\tro\t\t\t\t0 0\n' >> ${IMAGE_ROOTFS}/etc/fstab; \
+	mkfs.jffs2 \
+		--root=${IMAGE_ROOTFS} \
+		--disable-compressor=lzo \
+		--compression-mode=size \
+		--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.jffs2 \
+		${EXTRA_IMAGECMD}; \
+	sumtool \
+		-i ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.jffs2 \
+		-o ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sum.jffs2 \
+		${EXTRA_IMAGECMD}; \
+	${DREAMBOX_BUILDIMAGE} \
+		--boot-partition ${DREAMBOX_PART0_SIZE}:${DEPLOY_DIR_IMAGE}/secondstage-${MACHINE}.bin \
+		--data-partition ${DREAMBOX_PART1_SIZE}:${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.sum.jffs2 \
+		--data-partition ${DREAMBOX_PART2_SIZE}:${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sum.jffs2 \
+		> ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.nfi; \
+"
+
 IMAGE_CMD_ubinfi = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
-		--compression-mode=none \
+		--disable-compressor=lzo \
+		--compression-mode=size \
 		--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
 		${EXTRA_IMAGECMD}; \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
+	printf '/dev/mtdblock2\t/boot\t\tjffs2\tro\t\t\t\t0 0\n' >> ${IMAGE_ROOTFS}/etc/fstab; \
 	echo \[root\] > ubinize.cfg; \
 	echo mode=ubi >> ubinize.cfg; \
 	echo image=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubifs >> ubinize.cfg; \
@@ -43,7 +79,7 @@ IMAGE_CMD_ubinfi = " \
 			echo vol_name=data >> ubinize.cfg; \
 			echo vol_size=${UBINIZE_DATAVOLSIZE} >> ubinize.cfg; \
 			echo vol_flags=autoresize >> ubinize.cfg; \
-			printf '/dev/ubi0_1\t/data\t\tubifs\trw\t\t\t\t0 0\n' >> ${IMAGE_ROOTFS}/etc/fstab; \
+			printf '/dev/ubi0_1\t/data\t\tubifs\trw,nofail\t\t\t\t0 0\n' >> ${IMAGE_ROOTFS}/etc/fstab; \
 			install -d ${IMAGE_ROOTFS}/data; \
 		fi; \
 	fi; \
@@ -60,9 +96,11 @@ IMAGE_CMD_ubinfi = " \
 "
 
 EXTRA_IMAGECMD_jffs2nfi ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
+EXTRA_IMAGECMD_sum.jffs2nfi ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
 EXTRA_IMAGECMD_ubinfi ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
 
 IMAGE_DEPENDS_jffs2nfi = "${IMAGE_DEPENDS_jffs2} dreambox-buildimage-native"
+IMAGE_DEPENDS_sum.jffs2nfi = "${IMAGE_DEPENDS_sum.jffs2} dreambox-buildimage-native"
 IMAGE_DEPENDS_ubinfi = "${IMAGE_DEPENDS_ubi} ${IMAGE_DEPENDS_ubifs} dreambox-buildimage-native"
 
-IMAGE_TYPES += "jffs2 ubifs"
+IMAGE_TYPES += "jffs2nfi sum.jffs2nfi ubinfi"
