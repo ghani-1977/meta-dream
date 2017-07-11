@@ -48,12 +48,13 @@ SRC_URI = " \
 			file://0001-misc-latin1-to-utf8-conversions.patch \
 			file://defconfig \
 			file://0001-dvb_frontend-backport-multistream-support.patch \
+			file://0007-CHROMIUM-make-3.82-hack-to-fix-differing-behaviour-b.patch;apply=no \
 			file://0008-MIPS-Fix-build-with-binutils-2.24.51.patch \
-			file://0009-MIPS-Refactor-clear_page-and-copy_page-functions.patch \
+			file://0009-MIPS-Refactor-clear_page-and-copy_page-functions.patch;apply=no \
 			file://0010-BRCMSTB-Fix-build-with-binutils-2.24.51.patch \
-			file://0011-staging-rtl8712-rtl8712-avoid-lots-of-build-warnings.patch \
-			file://kernel-add-support-for-gcc6.patch \
-			file://misc_latin1_to_utf8_conversions.patch \
+			file://0011-staging-rtl8712-rtl8712-avoid-lots-of-build-warnings.patch;apply=no \
+			file://kernel-add-support-for-gcc6.patch;apply=no \
+			file://misc_latin1_to_utf8_conversions.patch;apply=no \
 "
 
 SRC_URI[kernel.md5sum] = "7ceb61f87c097fc17509844b71268935"
