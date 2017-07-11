@@ -17,6 +17,10 @@ Now edit the "Makefile" file and add the BSP layer to it:
 +	$(CURDIR)/dmm-bsp \
 	$(CURDIR)/meta-vuplus \
 ```
+For later updates you need to open a terminal inside "dmm-bsp" folder and enter:
+```
+git pull origin master
+```
 Experimental machines(Not yet ready!):
 ```
 dm500hdv2
