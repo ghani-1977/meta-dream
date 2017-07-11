@@ -2,6 +2,9 @@ MACHINE_KERNEL_PR_append = ".${INC_PR}.52"
 
 COMPATIBLE_MACHINE = "dm[0-9]+.*"
 
+PRECOMPILED_ARCH = "${MACHINE}"
+PRECOMPILED_ARCH_dm7020hdv2 = "dm7020hd"
+
 PATCHREV = "3c7230bc0819495db75407c365f4d1db70008044"
 PATCHLEVEL = "68"
 
@@ -45,7 +48,6 @@ SRC_URI = " \
 			file://0001-misc-latin1-to-utf8-conversions.patch \
 			file://defconfig \
 			file://0001-dvb_frontend-backport-multistream-support.patch \
-			file://0007-CHROMIUM-make-3.82-hack-to-fix-differing-behaviour-b.patch \
 			file://0008-MIPS-Fix-build-with-binutils-2.24.51.patch \
 			file://0009-MIPS-Refactor-clear_page-and-copy_page-functions.patch \
 			file://0010-BRCMSTB-Fix-build-with-binutils-2.24.51.patch \
