@@ -13,20 +13,25 @@ PACKAGES_DYNAMIC = "kernel-*"
 KERNEL_BUILTIN_MODULES = "kernel-module-block2mtd"
 
 KERNEL_BUILTIN_MODULES_dm8000 = "\
-	kernel-module-aes-generic \
-	kernel-module-block2mtd \
-	kernel-module-crc32c \
-	kernel-module-fuse \
-	kernel-module-mac80211 \
-	kernel-module-cfg80211 \
-	kernel-module-ath \
-	kernel-module-ath5k \
-	kernel-module-sr-mod \
-	kernel-module-isofs \
-	kernel-module-udf \
+	kernel-module-alps-bsbe1 \
+	kernel-module-alps-bsbe1-c01a \
+	kernel-module-alps-bsbe2 \
+	kernel-module-bcm4501 \
+	kernel-module-bcm4506 \
+	kernel-module-bcm7400 \
+	kernel-module-cu1216mk3 \
+	kernel-module-cxd1981 \
+	kernel-module-dreambox-keyboard \
+	kernel-module-dreambox-rc2 \
+	kernel-module-fpga \
+	kernel-module-helper \
+	kernel-module-lcd \
+	kernel-module-lnb-ctrl \
+	kernel-module-max4397 \
+	kernel-module-stb-core \
+	kernel-module-tu1216 \
 	kernel-module-stv0299 \
 	"
-
 KERNEL_BUILTIN_MODULES_dm800se = "\
 	kernel-module-block2mtd \
 	kernel-module-stv0299 \
