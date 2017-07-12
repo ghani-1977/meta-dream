@@ -1,4 +1,4 @@
-inherit image_types_nfi-new
+inherit image_types_nfi
 
 IMAGE_FSTYPES ?= "ubinfi"
 UBI_VOLNAME = "rootfs"

@@ -5,7 +5,7 @@ PROVIDES += "virtual/bootloader"
 PRIORITY = "required"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 DEPENDS = "dreambox-buildimage-native"
-PR = "r20"
+PR = "${@bb.utils.contains('EXACTNAME', 'dm7020hdv2', 'r21-v2', 'r21', d)}"
 
 inherit deploy
 

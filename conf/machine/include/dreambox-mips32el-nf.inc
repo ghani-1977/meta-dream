@@ -1,4 +1,6 @@
 # dreambox-mips32el-nf.inc
+# We know about rtc
+MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 
 TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el-nf"
