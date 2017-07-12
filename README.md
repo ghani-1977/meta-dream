@@ -13,7 +13,7 @@ How does it work? Simply with PLi's OE!
 Use https://github.com/OpenPLi/openpli-oe-core as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 rm -rf meta-dream
-git submodule add https://github.com/DMM-PLi/meta-dream.git
+git clone https://github.com/DMM-PLi/meta-dream.git
 ```
 Now edit the "Makefile" file:
 ```
