@@ -6,7 +6,7 @@ MACHINE_KERNEL_PR = "r7"
 MACHINE_KERNEL_PR_append = ".4"
 PATCHREV = "ac6cc9511a5f70eaa584c63fc5c3de33cae1d0e7"
 
-COMPATIBLE_MACHINE = "${@base_contains('MACHINEBUILD', 'japhar', 'dm(800$|800se$|8000$|500hd$)', 'dm800$', d)}"
+COMPATIBLE_MACHINE = "${@base_contains('MACHINEBUILD', 'japhar', 'dm(800$)', 'dm800$', d)}"
 
 SRC_URI = " \
         ${KERNELORG_MIRROR}/linux/kernel/v2.6/linux-${PV}.tar.bz2;name=kernel \
@@ -40,20 +40,6 @@ SRC_URI = " \
         file://mips-pps.patch \
 	file://vermagic.patch \
 	file://defconfig \
-"
-
-SRC_URI_append_dm8000 = " \
-	file://linux-2.6.18-disable-unneeded-uarts.patch \
-	file://linux-2.6.18-use-full-flash.patch \
-"
-
-SRC_URI_append_dm800se = " \
-	file://linux-2.6.18-swap-sata-ports.patch \
-	file://linux-2.6.18-fix-serial-dm800se.patch \
-"
-
-SRC_URI_append_dm500hd = " \
-        file://linux-2.6.18-fix-serial-dm500hd.patch \
 "
 
 SRC_URI[kernel.md5sum] = "296a6d150d260144639c3664d127d174"
@@ -96,18 +82,6 @@ require linux-dreambox.inc
 # For packages that RDEPEND on particular kernel modules, list the ones built into
 # the kernel here, so that it is known that the kernel has them built in.
 KERNEL_BUILTIN_MODULES = ""
-
-KERNEL_BUILTIN_MODULES_dm8000 = "\
-	kernel-module-aes-generic \
-	kernel-module-crc32c \
-	kernel-module-mac80211 \
-	kernel-module-cfg80211 \
-	kernel-module-ath \
-	kernel-module-ath5k \
-	kernel-module-sr-mod \
-	kernel-module-isofs \
-	kernel-module-udf \
-	"
 
 do_install_prepend() {
     mkdir -p ${S}/tools
