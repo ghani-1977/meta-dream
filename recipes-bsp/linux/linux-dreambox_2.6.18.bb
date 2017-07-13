@@ -6,7 +6,7 @@ MACHINE_KERNEL_PR = "r7"
 MACHINE_KERNEL_PR_append = ".4"
 PATCHREV = "ac6cc9511a5f70eaa584c63fc5c3de33cae1d0e7"
 
-COMPATIBLE_MACHINE = "${@base_contains('MACHINEBUILD', 'japhar', 'dm(800$)', 'dm800$', d)}"
+COMPATIBLE_MACHINE = "dm800"
 
 SRC_URI = " \
 		${KERNELORG_MIRROR}/linux/kernel/v2.6/linux-${PV}.tar.bz2;name=kernel \
@@ -87,20 +87,14 @@ do_install_prepend() {
 	mkdir -p ${S}/tools
 }
 
-export MB="${MACHINEBUILD}"
 export TM="${MACHINE}"
 
 do_install_append() {
 	ln -sf ${STAGING_KERNEL_DIR}/include/asm-mips ${STAGING_KERNEL_DIR}/include/asm
-	if [ "$TM" = "dm800" ] && [ "$MB" = "estar" ]
-	then
-			echo "not autoloading wifi modules on dm800 estar!"
-	else
-		echo "zd1211rw" > ${D}/etc/modules-load.d/kernel-wifi.conf
-		echo "zd1201" >> ${D}/etc/modules-load.d/kernel-wifi.conf
-	fi
+	echo "zd1211rw" > ${D}/etc/modules-load.d/kernel-wifi.conf
+	echo "zd1201" >> ${D}/etc/modules-load.d/kernel-wifi.conf
 }
-
+	
 do_package_qa() {
 	exit 0
 }
