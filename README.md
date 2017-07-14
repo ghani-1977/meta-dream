@@ -4,7 +4,7 @@ dm500hd - boot status is ?
 dm500hdv2 - boot status is ?
 dm800se - boot status is ?
 dm800sev2 - boot status is ?
-dm7020hd - boot status is ?
+dm7020hd - boot status is ok
 dm7020hdv2 - boot status is ?
 dm8000 - boot status is ?
 ```
@@ -39,7 +39,7 @@ For latest updates you need to open a terminal inside "meta-dream" folder and en
 ```
 git pull origin master
 ```
-each time you want to make an image!
+each time you do "make update" for the OE.
 
 Experimental machines:
 ```
