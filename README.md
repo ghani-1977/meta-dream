@@ -10,7 +10,7 @@ dm8000 - boot status is ?
 ```
 How does it work? Simply with PLi's OE!
 
-Use https://github.com/OpenPLi/openpli-oe-core as your base, Open a terminal inside "openpli-oe-core" folder and enter:
+Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.04.2 LTS (4.8.0-58 kernel) as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 rm -rf meta-dream
 git clone https://github.com/DMM-PLi/meta-dream.git
