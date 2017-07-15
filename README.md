@@ -47,6 +47,6 @@ dm520 - boot status is ?
 dm800 not yet ready for build!
 dm820 - boot status is ?
 dm900 - boot status is ?
-dm7080 - boot status is ?
+dm7080 - not yet ready for build!
 ```
 We're independent so if you think you can help you're welcome to send us merge requests.
