@@ -3,7 +3,7 @@ HOMEPAGE = "http://dreamboxupdate.com/"
 LICENSE = "CLOSED"
 DEPENDS = "coreutils-native udev"
 
-INC_PR = "r2"
+PR = "r1"
 
 inherit pkgconfig update-rc.d
 

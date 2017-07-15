@@ -3,7 +3,7 @@ LICENSE = "CLOSED"
 DEPENDS = "${LIBEGLDEP}"
 PROVIDES = "virtual/egl virtual/libgles2"
 
-INC_PR = "r2"
+PR = "r1"
 
 LIBEGLDEP = ""
 LIBEGLDEP_dm520 = "libv3ddriver"
