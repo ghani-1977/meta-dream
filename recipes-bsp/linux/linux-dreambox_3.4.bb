@@ -21,7 +21,7 @@ SRC_URI[dream-patch.md5sum] = "75844e4a206fd6ec3aeeaf1380c60b99"
 SRC_URI[dream-patch.sha256sum] = "5ed3938ec088a868bcd344fd03adedbcefc5198c5255bd48f26fb87e1f8b7b07"
 
 S = "${WORKDIR}/linux-${PV}"
-B = "${WORKDIR}/build/arch/mips/boot/"
+B = "${WORKDIR}/build"
 
 do_configure_prepend() {
         sed -e "/^SUBLEVEL = /d" -i ${S}/Makefile
