@@ -3,6 +3,8 @@ HOMEPAGE = "http://dreamboxupdate.com/"
 LICENSE = "CLOSED"
 DEPENDS = "coreutils-native udev"
 
+INC_PR = "r2"
+
 inherit pkgconfig update-rc.d
 
 SRC_URI_append = ";branch=${BRANCH}"
@@ -39,13 +41,16 @@ RDEPENDS_${PN} = " \
     pigz \
     util-linux-mount \
 "
-RDEPENDS_${PN}_append_bcm7435 = " \
+RDEPENDS_${PN}_append_dm820 = " \
     ${EMMCRDEPENDS_recovery} \
 "
-RDEPENDS_${PN}_append_bcm7252s = " \
+RDEPENDS_${PN}_append_dm7080 = " \
     ${EMMCRDEPENDS_recovery} \
 "
-RDEPENDS_${PN}_append_bcm73625 = " \
+RDEPENDS_${PN}_append_dm900 = " \
+    ${EMMCRDEPENDS_recovery} \
+"
+RDEPENDS_${PN}_append_dm520 = " \
     ${NANDRDEPENDS_recovery} \
 "
 
@@ -53,14 +58,18 @@ RDEPENDS_flash-scripts = " \
     coreutils-realpath \
     tpm-ca \
 "
-RDEPENDS_flash-scripts_append_bcm7435 = " \
+RDEPENDS_flash-scripts_append_dm820 = " \
     ${EMMCRDEPENDS_flash-scripts} \
     ${FASTBOOTRDEPENDS_flash-scripts} \
 "
-RDEPENDS_flash-scripts_append_bcm7252s = " \
+RDEPENDS_flash-scripts_append_dm7080 = " \
+    ${EMMCRDEPENDS_flash-scripts} \
+    ${FASTBOOTRDEPENDS_flash-scripts} \
+"
+RDEPENDS_flash-scripts_append_dm900 = " \
     ${EMMCRDEPENDS_flash-scripts} \
 "
-RDEPENDS_flash-scripts_append_bcm73625 = " \
+RDEPENDS_flash-scripts_append_dm520 = " \
     ${NANDRDEPENDS_flash-scripts} \
 "
 
