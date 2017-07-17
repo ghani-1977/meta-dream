@@ -5,7 +5,7 @@ dm500hdv2 - boot status is ?
 dm520 - boot status is ?
 dm800se - boot status is ?
 dm800sev2 - boot status is ?
-dm900 - boot status is ?
+dm900 - boot status is ok
 dm7020hd - boot status is ok
 dm7020hdv2 - boot status is ?
 dm8000 - boot status is ?
@@ -46,7 +46,7 @@ each time you do "make update" for the OE.
 Experimental machines:
 ```
 dm800 not yet ready for build!
-dm820 - not yet ready for build!
-dm7080 - not yet ready for build!
+dm820 - PLi's OE isn't recent enough!
+dm7080 - PLi's OE isn't recent enough!
 ```
 We're independent so if you think you can help you're welcome to send us merge requests.
