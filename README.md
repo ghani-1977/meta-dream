@@ -34,8 +34,8 @@ initialize: init
 and
 ```
 +	@echo 'export BB_ENV_EXTRAWHITE="MACHINE EXACTNAME"' > $@
-+	@echo 'export MACHINE' >> $@
-	@echo 'export EXACTNAME' >> $@
+	@echo 'export MACHINE' >> $@
++	@echo 'export EXACTNAME' >> $@
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
