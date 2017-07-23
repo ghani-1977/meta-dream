@@ -17,7 +17,7 @@ Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.0
 rm -rf meta-dream
 git clone https://github.com/DMM-PLi/meta-dream.git
 ```
-Now edit the "Makefile" file:
+Now edit the "Makefile" file(line 112):
 ```
 $(BBLAYERS):
 	[ -d $@ ] || $(MAKE) $(MFLAGS) update
@@ -31,11 +31,13 @@ $(BBLAYERS):
 
 initialize: init
 ```
-and
+and(line 158)
 ```
+	@echo 'export BB_ENV_EXTRAWHITE="MACHINE"' > $@
 +	@echo 'export BB_ENV_EXTRAWHITE="MACHINE EXACTNAME"' > $@
 	@echo 'export MACHINE' >> $@
 +	@echo 'export EXACTNAME' >> $@
+	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
