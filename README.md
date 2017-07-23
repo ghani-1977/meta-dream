@@ -32,7 +32,8 @@ $(BBLAYERS):
 initialize: init
 ```
 and(line 150)
-```	@echo 'Generating $@'
+```
+	@echo 'Generating $@'
 -	@echo 'export BB_ENV_EXTRAWHITE="MACHINE"' > $@
 +	@echo 'export BB_ENV_EXTRAWHITE="MACHINE EXACTNAME"' > $@
 	@echo 'export MACHINE' >> $@
