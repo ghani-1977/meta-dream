@@ -17,7 +17,7 @@ Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.0
 rm -rf meta-dream
 git clone https://github.com/DMM-PLi/meta-dream.git
 ```
-Now edit the "Makefile" file(line 112):
+Now if you want to build for dm7020hd/dm7020hdv2 edit the "Makefile" file(line 112):
 ```
 $(BBLAYERS):
 	[ -d $@ ] || $(MAKE) $(MFLAGS) update
@@ -31,7 +31,7 @@ $(BBLAYERS):
 
 initialize: init
 ```
-and(line 150)
+and(line 150):
 ```
 	@echo 'Generating $@'
 -	@echo 'export BB_ENV_EXTRAWHITE="MACHINE"' > $@
@@ -48,7 +48,7 @@ each time you do "make update" for the OE.
 
 Experimental machines:
 ```
-dm800 not yet ready for build!
+dm800 - not yet ready for build!
 dm820 - PLi's OE isn't recent enough!
 dm7080 - PLi's OE isn't recent enough!
 ```
