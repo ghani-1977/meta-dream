@@ -22,16 +22,13 @@ Now if you want to build for dm7020hd/dm7020hdv2 edit the "Makefile" file(line 1
 $(BBLAYERS):
 	[ -d $@ ] || $(MAKE) $(MFLAGS) update
 
-+EXACTNAME = $(MACHINE)
-+export EXACTNAME
 +ifeq ($(MACHINE),dm7020hdv2)
 +MACHINE=dm7020hd
-+EXACTNAME=dm7020hdv2
 +endif
 
 initialize: init
 ```
-and(line 150):
+and(line 147):
 ```
 	@echo 'Generating $@'
 -	@echo 'export BB_ENV_EXTRAWHITE="MACHINE"' > $@
@@ -39,6 +36,10 @@ and(line 150):
 	@echo 'export MACHINE' >> $@
 +	@echo 'export EXACTNAME' >> $@
 	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
+```
+And add to the end of the meta-openpli/conf/layer.con file
+```
+EXACTNAME = "${MACHINE}"
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
