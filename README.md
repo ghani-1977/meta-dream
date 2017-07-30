@@ -37,11 +37,6 @@ and(line 147):
 +	@echo 'export EXACTNAME' >> $@
 	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
 ```
-And add at the end of the meta-openpli/conf/layer.con file
-```
-+
-+EXACTNAME = "${MACHINE}"
-```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
 git pull origin master
