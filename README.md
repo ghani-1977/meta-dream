@@ -45,7 +45,7 @@ each time you do "make update" for the OE.
 
 Experimental machines:
 ```
-dm800 - not yet ready for build!
+dm800 - Use Ubuntu 14.04.5 LTS
 dm820 - PLi's OE isn't recent enough!
 dm7080 - PLi's OE isn't recent enough!
 ```
