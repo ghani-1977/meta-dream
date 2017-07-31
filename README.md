@@ -24,6 +24,7 @@ $(BBLAYERS):
 
 +ifeq ($(MACHINE),dm7020hdv2)
 +MACHINE=dm7020hd
++EXACTNAME=dm7020hdv2
 +endif
 
 initialize: init
