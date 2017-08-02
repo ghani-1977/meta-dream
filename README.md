@@ -1,14 +1,14 @@
 Dreambox BSP layer for:
 ```
-dm500hd - boot status is ?
-dm500hdv2 - boot status is ?
-dm520 - boot status is ?
-dm800se - boot status is ?
-dm800sev2 - boot status is ?
-dm900 - boot status is ok
-dm7020hd - boot status is ok
-dm7020hdv2 - boot status is ?
-dm8000 - boot status is ?
+dm500hd - kernel 3.2.75 driver 20140616 secondstage 84
+dm500hdv2 - kernel 3.2.75 driver 20140616 secondstage 89
+dm520 - kernel 3.4.113 driver 20170801 secondstage 3
+dm800se - kernel 3.2.75 driver 20151201 secondstage 84
+dm800sev2 - kernel 3.2.75 driver 20151201 secondstage 89
+dm900 - kernel 3.14.79 driver 20170801 secondstage N/A
+dm7020hd - kernel 3.2.75 driver 20161019 secondstage 89
+dm7020hdv2 - kernel 3.2.75 driver 20161019 secondstage 89
+dm8000 - kernel 3.2.75 driver 20140604a secondstage 84
 ```
 How does it work? Simply with PLi's OE!
 
