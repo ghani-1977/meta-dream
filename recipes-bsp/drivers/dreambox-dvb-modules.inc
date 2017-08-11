@@ -5,10 +5,12 @@ DEPENDS += "virtual/kernel"
 PRIORITY = "required"
 INC_PR = "r8"
 
+PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm7020hdv2', 'dm7020hd', 'MACHINE', d)}"
+
 DREAMBOX_DVB_MODULES_MIRROR ?= "http://sources.dreamboxupdate.com/download/opendreambox/2.0.0/dreambox-dvb-modules"
 
 SRC_URI = " \
-			${DREAMBOX_DVB_MODULES_MIRROR}/dreambox-dvb-modules-${MACHINE}-${DM_LOCALVERSION}-${DRIVERDATE}.tar.bz2;name=modules \
+			${DREAMBOX_DVB_MODULES_MIRROR}/dreambox-dvb-modules-${PRECOMPILED_ARCH}-3.2-${PRECOMPILED_ARCH}-${DRIVERDATE}.tar.bz2;name=modules \
 			file://modules \
 "
 

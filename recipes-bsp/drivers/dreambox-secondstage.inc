@@ -6,11 +6,13 @@ PRIORITY = "required"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 DEPENDS = "dreambox-buildimage-native"
 DATE = "${@time.strftime('%Y%m%d',time.gmtime())}"
-PR = "${@bb.utils.contains('EXACTNAME', 'dm7020hdv2', 'r${DATE}-v2', 'r${DATE}', d)}"
+PR = "r7"
+
+PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm7020hdv2', 'dm7020hd', 'MACHINE', d)}"
 
 inherit deploy
 
-SRC_URI = "http://sources.dreamboxupdate.com/download/7020/secondstage-${MACHINE}-${PV}.bin"
+SRC_URI = "http://sources.dreamboxupdate.com/download/7020/secondstage-${PRECOMPILED_ARCH}-${PV}.bin"
 
 PACKAGES = "${PN}"
 
