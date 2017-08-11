@@ -5,7 +5,7 @@ DEPENDS += "virtual/kernel"
 PRIORITY = "required"
 INC_PR = "r8"
 
-PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm7020hdv2', 'dm7020hd', 'MACHINE', d)}"
+PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm7020hdv2', 'dm7020hd', MACHINE, d)}"
 
 DREAMBOX_DVB_MODULES_MIRROR ?= "http://sources.dreamboxupdate.com/download/opendreambox/2.0.0/dreambox-dvb-modules"
 

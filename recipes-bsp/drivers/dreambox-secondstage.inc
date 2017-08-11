@@ -8,7 +8,7 @@ DEPENDS = "dreambox-buildimage-native"
 DATE = "${@time.strftime('%Y%m%d',time.gmtime())}"
 PR = "r7"
 
-PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm7020hdv2', 'dm7020hd', 'MACHINE', d)}"
+PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm7020hdv2', 'dm7020hd', MACHINE, d)}"
 
 inherit deploy
 
