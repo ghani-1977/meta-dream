@@ -17,27 +17,6 @@ Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.0
 rm -rf meta-dream
 git clone https://github.com/DMM-PLi/meta-dream.git
 ```
-Now if you want to build for dm7020hd/dm7020hdv2 edit the "Makefile" file(line 112):
-```
-$(BBLAYERS):
-	[ -d $@ ] || $(MAKE) $(MFLAGS) update
-
-+ifeq ($(MACHINE),dm7020hdv2)
-+MACHINE=dm7020hd
-+EXACTNAME=dm7020hdv2
-+endif
-
-initialize: init
-```
-and(line 147):
-```
-	@echo 'Generating $@'
--	@echo 'export BB_ENV_EXTRAWHITE="MACHINE"' > $@
-+	@echo 'export BB_ENV_EXTRAWHITE="MACHINE EXACTNAME"' > $@
-	@echo 'export MACHINE' >> $@
-+	@echo 'export EXACTNAME' >> $@
-	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
-```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
 git pull origin master
