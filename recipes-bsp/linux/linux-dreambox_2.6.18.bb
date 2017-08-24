@@ -1,45 +1,93 @@
-DEPENDS = "kmod-native"
+SUMMARY = "Linux Kernel"
+SECTION = "kernel"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
+MACHINE_KERNEL_PR = "r7.4"
+INC_PR = "19"
+PATCHREV = "ac6cc9511a5f70eaa584c63fc5c3de33cae1d0e7"
+
+COMPATIBLE_MACHINE = "dm800$"
 
 inherit kernel siteinfo machine_kernel_pr
 
-MACHINE_KERNEL_PR = "r7"
-MACHINE_KERNEL_PR_append = ".4"
-PATCHREV = "ac6cc9511a5f70eaa584c63fc5c3de33cae1d0e7"
+PRECOMPILED_ARCH = "${MACHINE}"
+PRECOMPILED_ARCH_dm7020hdv2 = "dm7020hd"
+LOCALVERSION = "-${PRECOMPILED_ARCH}"
 
-COMPATIBLE_MACHINE = "dm800"
+PACKAGES_DYNAMIC = "kernel-*"
+
+export OS = "Linux"
+KERNEL_OBJECT_SUFFIX = "ko"
+KERNEL_OUTPUT = "vmlinux"
+KERNEL_IMAGETYPE = "vmlinux"
+KERNEL_IMAGEDEST = "/boot"
+
+# By default, kernel.bbclass modifies package names to allow multiple kernels
+# to be installed in parallel. We revert this change and rprovide the versioned
+# package names instead, to allow only one kernel to be installed.
+PKG_kernel-base = "kernel-base"
+PKG_kernel-image = "kernel-image"
+RPROVIDES_kernel-base = "kernel-${KERNEL_VERSION}"
+RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION} ${KERNEL_BUILTIN_MODULES}"
+
+USB_ROOT = "/dev/sdb2"
+USB_ROOT_dm8000 = "/dev/sdf2"
+
+CMDLINE_JFFS2 = "root=/dev/mtdblock3 rootfstype=jffs2 rw ${CMDLINE_CONSOLE}"
+CMDLINE_UBI = "ubi.mtd=root root=ubi0:rootfs rootfstype=ubifs rw ${CMDLINE_CONSOLE}"
+CMDLINE = "${@bb.utils.contains('IMAGE_FSTYPES', 'ubinfi', '${CMDLINE_UBI}', '${CMDLINE_JFFS2}', d)}"
+USB_CMDLINE = "root=${USB_ROOT} rootdelay=10 rw ${CMDLINE_CONSOLE}"
 
 SRC_URI = " \
-		${KERNELORG_MIRROR}/linux/kernel/v2.6/linux-${PV}.tar.bz2;name=kernel \
-		http://sources.dreamboxupdate.com/download/kernel-patches/${P}-${PATCHREV}.patch.bz2;name=patch \
-		http://download.filesystems.org/unionfs/unionfs-2.x/unionfs-2.5.11_for_2.6.18.8.diff.gz;name=unionfs \
-		file://stblinux-2.6.18-extra-version-7.4.patch \
-		file://stblinux-2.6.18-brcmnand-oob-raw-write-fix.patch \
-		file://linux-2.6.18-fix-mips-crosscompile.patch \
-		file://linux-2.6.18-fix-proc-cputype.patch \
-		file://dvb-api-2.6.18-5.3.patch \
-		file://linux-2.6.18-dvb-core-headers-20100904.patch \
-		file://linux-2.6.18-dvb-frontends-headers-20100904.patch \
-		file://stblinux-2.6.18-fixed-brcmnand-buffer-overflow.patch \
-		file://stblinux-2.6.18-brcmnand-fixed-dm7020hd-oob-write-op.patch \
-		file://stblinux-2.6.18-libata-revert-no-more-needed-change.patch \
-		file://stblinux-2.6.18-libata-hdd-spinup-workaround.patch \
-		file://kbuild-fix-make-incompatibility.patch \
-		file://0001-MIPS-Fix-possible-hang-in-LL-SC-futex-loops.patch \
-		file://0001-Add-support-for-FTDI-FT4232H-based-devices.patch \
-		file://0001-proc-mounts_poll-make-consistent-to-mdstat_poll.patch \
-		file://0001-fixed-broken-usb-with-gcc-4.6.x.patch \
-		file://linux-2.6.18-fix-serial.patch \
-		file://stblinux-2.6.18-hw-ecc-compatibility.patch \
-		file://linux-2.6.18-include-asm.patch \
-		file://linux-2.6.18-include-linux.patch \
-		file://linux-2.6.18-mod_devicetable_h.patch \
-		file://linux-2.6.18-3g-modems.patch \
-		file://mips_refactor_page_dev0.patch \
-		file://mkmakefile-make-3.82-fix-follow-bug-2323.patch \
-		file://mips-utimensat.patch \
-		file://mips-pps.patch \
-		file://vermagic.patch \
-		file://defconfig \
+        ${KERNELORG_MIRROR}/linux/kernel/v2.6/linux-${PV}.tar.bz2;name=kernel \
+        http://sources.dreamboxupdate.com/download/kernel-patches/${P}-${PATCHREV}.patch.bz2;name=patch \
+        http://download.filesystems.org/unionfs/unionfs-2.x/unionfs-2.5.11_for_2.6.18.8.diff.gz;name=unionfs \
+        file://stblinux-2.6.18-extra-version-7.4.patch \
+        file://stblinux-2.6.18-brcmnand-oob-raw-write-fix.patch \
+        file://linux-2.6.18-fix-mips-crosscompile.patch \
+        file://linux-2.6.18-fix-proc-cputype.patch \
+        file://dvb-api-2.6.18-5.3.patch \
+        file://linux-2.6.18-dvb-core-headers-20100904.patch \
+        file://linux-2.6.18-dvb-frontends-headers-20100904.patch \
+        file://stblinux-2.6.18-fixed-brcmnand-buffer-overflow.patch \
+        file://stblinux-2.6.18-brcmnand-fixed-dm7020hd-oob-write-op.patch \
+        file://stblinux-2.6.18-libata-revert-no-more-needed-change.patch \
+        file://stblinux-2.6.18-libata-hdd-spinup-workaround.patch \
+        file://kbuild-fix-make-incompatibility.patch \
+        file://0001-MIPS-Fix-possible-hang-in-LL-SC-futex-loops.patch \
+        file://0001-Add-support-for-FTDI-FT4232H-based-devices.patch \
+        file://0001-proc-mounts_poll-make-consistent-to-mdstat_poll.patch \
+        file://0001-fixed-broken-usb-with-gcc-4.6.x.patch \
+        file://linux-2.6.18-fix-serial.patch \
+        file://stblinux-2.6.18-hw-ecc-compatibility.patch \
+        file://linux-2.6.18-include-asm.patch \
+        file://linux-2.6.18-include-linux.patch \
+        file://linux-2.6.18-mod_devicetable_h.patch \
+        file://linux-2.6.18-3g-modems.patch \
+        file://mips_refactor_page_dev0.patch \
+        file://mkmakefile-make-3.82-fix-follow-bug-2323.patch \
+	file://mips-utimensat.patch \
+        file://mips-pps.patch \
+	file://vermagic.patch \
+	file://binutils-gcc6.patch \
+	file://kernel-gcc7.patch \
+	file://add_resolution_to_absinfo.patch \
+	file://add_strcasecmp.patch \
+	file://defconfig \
+"
+
+SRC_URI_append_dm8000 = " \
+	file://linux-2.6.18-disable-unneeded-uarts.patch \
+	file://linux-2.6.18-use-full-flash.patch \
+"
+
+SRC_URI_append_dm800se = " \
+	file://linux-2.6.18-swap-sata-ports.patch \
+	file://linux-2.6.18-fix-serial-dm800se.patch \
+"
+
+SRC_URI_append_dm500hd = " \
+        file://linux-2.6.18-fix-serial-dm500hd.patch \
 "
 
 SRC_URI[kernel.md5sum] = "296a6d150d260144639c3664d127d174"
@@ -59,6 +107,22 @@ do_configure_prepend() {
 	rm -rf ${STAGING_KERNEL_DIR}/include/generated
 	rm -rf ${STAGING_KERNEL_DIR}/include/config
 	rm -rf ${STAGING_KERNEL_DIR}/arch/mips/include/generated
+
+	echo "" > ${S}/.config
+	echo "CONFIG_CMDLINE=\"${CMDLINE}\"" >> ${S}/.config
+
+        sed -e '/CONFIG_AEABI/d' \
+            -e '/CONFIG_OABI_COMPAT=/d' \
+            -e '/CONFIG_CMDLINE=/d' \
+            -e '/CONFIG_CPU_BIG_ENDIAN/d' \
+            -e '/CONFIG_LOGO=/d' \
+            -e '/CONFIG_LOGO_LINUX_CLUT224=/d' \
+            -e '/CONFIG_LOCALVERSION/d' \
+            -e '/CONFIG_LOCALVERSION_AUTO/d' \
+	    < '${WORKDIR}/defconfig' >>'${S}/.config'
+
+	echo 'CONFIG_LOCALVERSION="${LOCALVERSION}"' >>${S}/.config
+	echo '# CONFIG_LOCALVERSION_AUTO is not set' >>${S}/.config
 }
 
 do_shared_workdir_prepend() {
@@ -69,36 +133,89 @@ do_shared_workdir_prepend() {
 	cp -fR ${B}/include/* ${STAGING_KERNEL_BUILDDIR}/include/
 	cp -fR ${B}/scripts/* ${STAGING_KERNEL_BUILDDIR}/scripts/
 	ln -fs ${STAGING_KERNEL_DIR} ${STAGING_KERNEL_BUILDDIR}/source
-	while [ ! -f ${B}/Module.symvers ]
-	do
-		sleep 2
-	done
+	ln -sf ${STAGING_KERNEL_DIR}/include/asm-mips ${STAGING_KERNEL_DIR}/include/asm
+	if [ ! -e ${B}/Module.symvers ]
+	then
+		touch ${B}/Module.symvers
+	fi
 }
 
-LOCALVERSION = "-${MACHINE}"
-
-require linux-dreambox.inc
+do_install_append() {
+	${STRIP} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
+	gzip -9 ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
+	echo "/boot/bootlogo-${PRECOMPILED_ARCH}.elf.gz filename=/boot/bootlogo-${PRECOMPILED_ARCH}.jpg" > ${D}/${KERNEL_IMAGEDEST}/autoexec.bat
+	echo "/boot/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}.gz ${CMDLINE}" >> ${D}/${KERNEL_IMAGEDEST}/autoexec.bat
+}
 
 # For packages that RDEPEND on particular kernel modules, list the ones built into
 # the kernel here, so that it is known that the kernel has them built in.
 KERNEL_BUILTIN_MODULES = ""
 
+KERNEL_BUILTIN_MODULES_dm8000 = "\
+	kernel-module-aes-generic \
+	kernel-module-crc32c \
+	kernel-module-mac80211 \
+	kernel-module-cfg80211 \
+	kernel-module-ath \
+	kernel-module-ath5k \
+	kernel-module-sr-mod \
+	kernel-module-isofs \
+	kernel-module-udf \
+	"
+
+do_rm_work() {
+}
+
 do_install_prepend() {
 	mkdir -p ${S}/tools
 }
 
-export TM="${MACHINE}"
-
-do_install_append() {
-	ln -sf ${STAGING_KERNEL_DIR}/include/asm-mips ${STAGING_KERNEL_DIR}/include/asm
-	echo "zd1211rw" > ${D}/etc/modules-load.d/kernel-wifi.conf
-	echo "zd1201" >> ${D}/etc/modules-load.d/kernel-wifi.conf
-}
-	
 do_package_qa() {
-	exit 0
+    exit 0
 }
 
-FILES_kernel-image += "\
-	/etc/modules-load.d \
-"
+pkg_preinst_kernel-image() {
+	if [ -z "$D" ]
+	then
+		if mountpoint -q /${KERNEL_IMAGEDEST}
+		then
+			mount -o remount,rw,compr=none /${KERNEL_IMAGEDEST}
+		else
+			mount -t jffs2 -o rw,compr=none mtd:boot /${KERNEL_IMAGEDEST} || mount -t jffs2 -o rw,compr=none mtd:'boot partition' /${KERNEL_IMAGEDEST}
+		fi
+	fi
+}
+pkg_prerm_kernel-image() {
+	if [ -z "$D" ]
+	then
+		if mountpoint -q /${KERNEL_IMAGEDEST}
+		then
+			mount -o remount,rw,compr=none /${KERNEL_IMAGEDEST}
+		else
+			mount -t jffs2 -o rw,compr=none mtd:boot /${KERNEL_IMAGEDEST}
+		fi
+	fi
+}
+pkg_postinst_kernel-image() {
+        if [ -z "$D" ] && mountpoint -q /${KERNEL_IMAGEDEST}; then
+                if grep -q '\<root=/dev/mtdblock3\>' /proc/cmdline && grep -q '\<root=ubi0:rootfs\>' /boot/autoexec.bat; then
+                        sed -ie 's!${CMDLINE_UBI}!${CMDLINE_JFFS2}!' /boot/autoexec.bat;
+                fi
+                umount /${KERNEL_IMAGEDEST};
+        fi
+}
+pkg_postrm_kernel-image() {
+	if [ -z "$D" ]
+	then
+		umount /${KERNEL_IMAGEDEST}
+	fi
+}
+
+# Do not use update-alternatives!
+pkg_postinst_kernel () {
+}
+pkg_postrm_kernel () {
+}
+
+FILES_kernel-vmlinux += " boot/vmlinux-2.6.18-7.4-${MACHINE}.gz"
+FILES_kernel-image += " ${KERNEL_IMAGEDEST}/autoexec*.bat"

@@ -1,0 +1,24 @@
+--- iw-4.7/iw.h.orig	2017-08-23 13:00:00.685218594 +0200
++++ iw-4.7/iw.h	2017-08-23 13:00:28.692519479 +0200
+@@ -18,6 +18,21 @@
+ #  define nl_sock nl_handle
+ #endif
+ 
++#ifndef CTRL_ATTR_MCAST_GRP_MAX
++#undef CTRL_ATTR_MAX
++#define CTRL_ATTR_MAX 7
++#define CTRL_ATTR_MCAST_GROUPS 7
++
++enum {
++	CTRL_ATTR_MCAST_GRP_UNSPEC,
++	CTRL_ATTR_MCAST_GRP_NAME,
++	CTRL_ATTR_MCAST_GRP_ID,
++	__CTRL_ATTR_MCAST_GRP_MAX,
++};
++
++#define CTRL_ATTR_MCAST_GRP_MAX (__CTRL_ATTR_MCAST_GRP_MAX - 1)
++#endif
++
+ struct nl80211_state {
+ 	struct nl_sock *nl_sock;
+ 	int nl80211_id;

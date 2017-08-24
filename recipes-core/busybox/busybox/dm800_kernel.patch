@@ -1,0 +1,16 @@
+--- busybox-1.24.1/miscutils/i2c_tools.c.orig	2017-08-23 16:47:26.513832778 +0200
++++ busybox-1.24.1/miscutils/i2c_tools.c	2017-08-23 16:53:55.968562521 +0200
+@@ -70,6 +70,13 @@
+ #define I2CDETECT_MODE_QUICK		1
+ #define I2CDETECT_MODE_READ		2
+ 
++#ifndef I2C_SMBUS_I2C_BLOCK_BROKEN
++#define I2C_SMBUS_I2C_BLOCK_BROKEN 6
++#endif
++#ifndef I2C_FUNC_SMBUS_PEC
++#define I2C_FUNC_SMBUS_PEC 0x00000008
++#endif
++
+ /*
+  * This is needed for ioctl_or_perror_and_die() since it only accepts pointers.
+  */
