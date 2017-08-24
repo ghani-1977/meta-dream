@@ -71,7 +71,7 @@ PREFERRED_VERSION_linux-libc-headers = "2.6.18"
 PREFERRED_VERSION_wpa-supplicant = "0.5.8"
 
 
-MACHINE_FEATURES += "alsa usbhost 3dtv switchoff tpm dreambox legacykernel legacyrt"
+MACHINE_FEATURES += "alsa usbhost 3dtv switchoff dreambox legacykernel"
 # Add "dreambox" override for recipes
 MACHINEOVERRIDES .= ":dreambox"
 
@@ -90,5 +90,7 @@ DREAMBOX_BUILDIMAGE = "buildimage --arch ${MACHINE} ${EXTRA_BUILDCMD} \
 	--erase-block-size ${DREAMBOX_ERASE_BLOCK_SIZE} \
 	--flash-size ${DREAMBOX_FLASH_SIZE} \
 	--sector-size ${DREAMBOX_SECTOR_SIZE}"
+
+IMAGE_FSTYPES ?= "jffs2nfi"
 
 require conf/machine/include/tune-mips32.inc
