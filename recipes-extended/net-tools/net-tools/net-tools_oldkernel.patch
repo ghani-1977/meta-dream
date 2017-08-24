@@ -1,0 +1,22 @@
+--- net-tools-1.60/lib/inet_sr.c.orig	2017-08-24 15:59:19.088823668 +0200
++++ net-tools-1.60/lib/inet_sr.c	2017-08-24 15:59:30.151553422 +0200
+@@ -26,7 +26,7 @@
+ #include <string.h>
+ #include <stdio.h>
+ #include <unistd.h>
+-#include <asm-generic/param.h>
++#include <asm/param.h>
+ #include "version.h"
+ #include "net-support.h"
+ #include "pathnames.h"
+--- net-tools-1.60/netstat.c.orig	2017-08-24 15:58:59.937291510 +0200
++++ net-tools-1.60/netstat.c	2017-08-24 15:59:11.255015040 +0200
+@@ -88,7 +88,7 @@
+ #include <dirent.h>
+ #include <sys/stat.h>
+ #include <sys/types.h>
+-#include <asm-generic/param.h>
++#include <asm/param.h>
+ 
+ #include "net-support.h"
+ #include "pathnames.h"

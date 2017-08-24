@@ -1,7 +1,5 @@
 require linux-libc-headers.inc
 
-PR = "r5"
-
 SRC_URI += " \
         file://mips-add-missing-headers.patch \
         file://mips-fix-ptrace-header.patch \

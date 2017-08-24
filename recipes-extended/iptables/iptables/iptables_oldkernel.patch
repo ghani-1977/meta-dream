@@ -1,0 +1,32 @@
+--- iptables-1.6.0/extensions/libebt_log.c.log	2017-08-24 15:12:14.741755634 +0200
++++ iptables-1.6.0/extensions/libebt_log.c	2017-08-24 15:19:39.961901026 +0200
+@@ -27,6 +27,29 @@
+ #define LOG_LOG    '5'
+ #define LOG_IP6    '6'
+ 
++#ifndef EBT_LOG_IP
++#define EBT_LOG_IP 0x01 /* if the frame is made by ip, log the ip information */
++#endif
++#ifndef EBT_LOG_ARP
++#define EBT_LOG_ARP 0x02
++#endif
++#ifndef EBT_LOG_NFLOG
++#define EBT_LOG_NFLOG 0x04
++#endif
++#ifndef EBT_LOG_IP6
++#define EBT_LOG_IP6 0x08
++#endif
++#ifndef EBT_LOG_MASK
++#define EBT_LOG_MASK (EBT_LOG_IP | EBT_LOG_ARP | EBT_LOG_IP6)
++#endif
++#ifndef EBT_LOG_PREFIX_SIZE
++#define EBT_LOG_PREFIX_SIZE 30
++#endif
++#ifndef EBT_LOG_WATCHER
++#define EBT_LOG_WATCHER "log"
++#endif
++
++
+ typedef struct _code {
+ 	char *c_name;
+ 	int c_val;

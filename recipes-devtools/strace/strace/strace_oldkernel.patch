@@ -1,0 +1,40 @@
+--- strace-4.13/tests/ptrace.c.orig	2017-08-24 16:25:07.606283856 +0200
++++ strace-4.13/tests/ptrace.c	2017-08-24 16:25:58.428047272 +0200
+@@ -39,6 +39,7 @@
+ # include <sys/wait.h>
+ # include <unistd.h>
+ # include "ptrace.h"
++# include <linux/types.h>
+ # include <linux/audit.h>
+ 
+ static long
+--- strace-4.13/printsiginfo.c.orig	2017-08-24 16:25:14.565114535 +0200
++++ strace-4.13/printsiginfo.c	2017-08-24 16:26:27.363343225 +0200
+@@ -37,6 +37,7 @@
+ #include DEF_MPERS_TYPE(siginfo_t)
+ 
+ #include <signal.h>
++#include <linux/types.h>
+ #include <linux/audit.h>
+ 
+ #include MPERS_DEFS
+--- strace-4.13/tests-m32/ptrace.c.orig	2017-08-24 16:25:28.621772510 +0200
++++ strace-4.13/tests-m32/ptrace.c	2017-08-24 16:26:49.315809075 +0200
+@@ -39,6 +39,7 @@
+ # include <sys/wait.h>
+ # include <unistd.h>
+ # include "ptrace.h"
++# include <linux/types.h>
+ # include <linux/audit.h>
+ 
+ static long
+--- strace-4.13/tests-mx32/ptrace.c.orig	2017-08-24 16:25:38.589529972 +0200
++++ strace-4.13/tests-mx32/ptrace.c	2017-08-24 16:27:08.031353696 +0200
+@@ -39,6 +39,7 @@
+ # include <sys/wait.h>
+ # include <unistd.h>
+ # include "ptrace.h"
++# include <linux/types.h>
+ # include <linux/audit.h>
+ 
+ static long

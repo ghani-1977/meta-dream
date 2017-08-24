@@ -1,0 +1,17 @@
+--- git/vtuner.cpp.orig	2017-08-24 16:02:38.854943725 +0200
++++ git/vtuner.cpp	2017-08-24 16:03:13.582095402 +0200
+@@ -34,6 +34,14 @@
+ 
+ #include "rtp.h"
+ 
++#ifndef NO_STREAM_ID_FILTER
++#define NO_STREAM_ID_FILTER    (~0U)
++#endif
++
++#ifndef DTV_STREAM_ID
++#define DTV_STREAM_ID DTV_ISDBS_TS_ID
++#endif
++
+ const char* vtuner_path = "/dev/misc/vtuner";
+ 
+ satipVtuner::satipVtuner(satipConfig* satip_cfg)
