@@ -1,0 +1,30 @@
+--- iproute2-4.7.0/tc/tc_bpf.h.orig	2017-08-24 16:07:55.957220220 +0200
++++ iproute2-4.7.0/tc/tc_bpf.h	2017-08-24 16:08:07.651937904 +0200
+@@ -15,7 +15,7 @@
+ 
+ #include <linux/netlink.h>
+ #include <linux/bpf.h>
+-#include <linux/magic.h>
++#include <magic.h>
+ 
+ #include "utils.h"
+ #include "bpf_scm.h"
+--- iproute2-4.7.0/tc/m_ipt.c.orig	2017-08-24 16:18:29.791912737 +0200
++++ iproute2-4.7.0/tc/m_ipt.c	2017-08-24 16:18:50.878403046 +0200
+@@ -33,6 +33,16 @@
+ #include <fcntl.h>
+ #include <sys/wait.h>
+ 
++#ifndef XT_ALIGN
++#define XT_ALIGN(s) __ALIGN_KERNEL((s), __alignof__(struct _xt_align))
++#endif
++#ifndef __ALIGN_KERNEL
++#define __ALIGN_KERNEL(x, a)            __ALIGN_KERNEL_MASK(x, (typeof(x))(a) - 1)
++#endif
++#ifndef __ALIGN_KERNEL_MASK
++#define __ALIGN_KERNEL_MASK(x, mask)    (((x) + (mask)) & ~(mask))
++#endif
++
+ static const char *pname = "tc-ipt";
+ static const char *tname = "mangle";
+ static const char *pversion = "0.1";

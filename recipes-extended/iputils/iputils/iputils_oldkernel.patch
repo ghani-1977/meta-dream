@@ -1,0 +1,11 @@
+--- iputils-s20151218/ping_common.c.orig	2017-08-24 16:22:05.630695600 +0200
++++ iputils-s20151218/ping_common.c	2017-08-24 16:22:18.015396241 +0200
+@@ -2,7 +2,7 @@
+ #include <ctype.h>
+ #include <sched.h>
+ #include <math.h>
+-#include <asm-generic/param.h>
++#include <asm/param.h>
+ 
+ int options;
+ 

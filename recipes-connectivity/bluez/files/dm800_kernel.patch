@@ -1,0 +1,101 @@
+--- bluez-5.41/src/shared/att.c.orig	2017-08-23 15:22:45.884955160 +0200
++++ bluez-5.41/src/shared/att.c	2017-08-23 15:25:24.693084562 +0200
+@@ -39,6 +39,14 @@
+ #include "src/shared/att.h"
+ #include "src/shared/crypto.h"
+ 
++#ifndef SO_DOMAIN
++#define SO_DOMAIN 39
++#endif
++
++#ifndef SO_PROTOCOL
++#define SO_PROTOCOL 38
++#endif
++
+ #define ATT_MIN_PDU_LEN			1  /* At least 1 byte for the opcode. */
+ #define ATT_OP_CMD_MASK			0x40
+ #define ATT_OP_SIGNED_MASK		0x80
+--- bluez-5.41/btio/btio.c.orig	2017-08-23 15:22:39.525110167 +0200
++++ bluez-5.41/btio/btio.c	2017-08-23 15:24:59.283703861 +0200
+@@ -47,6 +47,14 @@
+ #define BT_FLUSHABLE	8
+ #endif
+ 
++#ifndef SO_DOMAIN
++#define SO_DOMAIN 39
++#endif
++
++#ifndef SO_PROTOCOL
++#define SO_PROTOCOL 38
++#endif
++
+ #define ERROR_FAILED(gerr, str, err) \
+ 		g_set_error(gerr, BT_IO_ERROR, err, \
+ 				str ": %s (%d)", strerror(err), err)
+--- bluez-5.41/profiles/input/uhid_copy.h.orig	2017-08-23 16:28:39.431536101 +0200
++++ bluez-5.41/profiles/input/uhid_copy.h	2017-08-23 16:28:27.655813208 +0200
+@@ -21,7 +21,63 @@
+ 
+ #include <linux/input.h>
+ #include <linux/types.h>
+-#include <linux/hid.h>
++#include <linux/hiddev.h>
++
++#ifndef USB_INTERFACE_CLASS_HID
++#define USB_INTERFACE_CLASS_HID		3
++#endif
++
++#ifndef USB_INTERFACE_SUBCLASS_BOOT
++#define USB_INTERFACE_SUBCLASS_BOOT	1
++#endif
++
++#ifndef USB_INTERFACE_PROTOCOL_KEYBOARD
++#define USB_INTERFACE_PROTOCOL_KEYBOARD	1
++#endif
++
++#ifndef USB_INTERFACE_PROTOCOL_MOUSE
++#define USB_INTERFACE_PROTOCOL_MOUSE	2
++#endif
++
++#ifndef HID_REQ_GET_REPORT
++#define HID_REQ_GET_REPORT		0x01
++#endif
++
++#ifndef HID_REQ_GET_IDLE
++#define HID_REQ_GET_IDLE		0x02
++#endif
++
++#ifndef HID_REQ_GET_PROTOCOL
++#define HID_REQ_GET_PROTOCOL		0x03
++#endif
++
++#ifndef HID_REQ_SET_REPORT
++#define HID_REQ_SET_REPORT		0x09
++#endif
++
++#ifndef HID_REQ_SET_IDLE
++#define HID_REQ_SET_IDLE		0x0A
++#endif
++
++#ifndef HID_REQ_SET_PROTOCOL
++#define HID_REQ_SET_PROTOCOL		0x0B
++#endif
++
++#ifndef HID_DT_HID
++#define HID_DT_HID			(USB_TYPE_CLASS | 0x01)
++#endif
++
++#ifndef HID_DT_REPORT
++#define HID_DT_REPORT			(USB_TYPE_CLASS | 0x02)
++#endif
++
++#ifndef HID_DT_PHYSICAL
++#define HID_DT_PHYSICAL			(USB_TYPE_CLASS | 0x03)
++#endif
++
++#ifndef HID_MAX_DESCRIPTOR_SIZE
++#define HID_MAX_DESCRIPTOR_SIZE		4096
++#endif
+ 
+ enum uhid_event_type {
+ 	__UHID_LEGACY_CREATE,
