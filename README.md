@@ -1,14 +1,14 @@
 Dreambox BSP layer for:
 ```
-dm500hd - kernel 3.2.91 driver 20140616 secondstage 84
-dm500hdv2 - kernel 3.2.91 driver 20140616 secondstage 89
+dm500hd - kernel 3.2.92 driver 20140616 secondstage 84
+dm500hdv2 - kernel 3.2.92 driver 20140616 secondstage 89
 dm520 - kernel 3.4.113 driver 20170801 secondstage 3
-dm800se - kernel 3.2.91 driver 20151201 secondstage 84
-dm800sev2 - kernel 3.2.91 driver 20151201 secondstage 89
+dm800se - kernel 3.2.92 driver 20151201 secondstage 84
+dm800sev2 - kernel 3.2.92 driver 20151201 secondstage 89
 dm900 - kernel 3.14.79 driver 20170801 secondstage N/A
-dm7020hd - kernel 3.2.91 driver 20161019 secondstage 89
-dm7020hdv2 - kernel 3.2.91 driver 20161019 secondstage 89
-dm8000 - kernel 3.2.91 driver 20140604a secondstage 84
+dm7020hd - kernel 3.2.92 driver 20161019 secondstage 89
+dm7020hdv2 - kernel 3.2.92 driver 20161019 secondstage 89
+dm8000 - kernel 3.2.92 driver 20140604a secondstage 84
 dm800 - kernel 2.6.18 driver 20131228a secondstage 84
 ```
 How does it work? Simply with PLi's OE!
