@@ -48,6 +48,10 @@ KERNEL_ENABLE_CGROUPS = "1"
 
 RDEPENDS_kernel-image = "flash-scripts"
 
+do_install_prepend() {
+install -m 0644 ${B}/arch/mips/boot/vmlinux.bin ${B}/
+}
+
 pkg_postinst_kernel-image () {
 #!/bin/sh
 if [ -z "$D" ]; then
