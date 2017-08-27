@@ -30,7 +30,7 @@ KERNEL_BUILTIN_MODULES_dm8000 = "\
 	kernel-module-max4397 \
 	kernel-module-stb-core \
 	kernel-module-tu1216 \
-	kernel-module-stv0299 \
+	kernel-module-stv0299-3.2-dm8000 \
 	"
 KERNEL_BUILTIN_MODULES_dm800se = "\
 	kernel-module-block2mtd \
