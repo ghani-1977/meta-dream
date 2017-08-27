@@ -1,3 +1,6 @@
+Test branch for openpli test1 branch:
+https://github.com/OpenPLi/openpli-oe-core/tree/test1
+
 Dreambox BSP layer for:
 ```
 dm500hd - kernel 3.2.92 driver 20140616 secondstage 84
@@ -13,7 +16,7 @@ dm800 - kernel 2.6.18 driver 20131228a secondstage 84
 ```
 How does it work? Simply with PLi's OE!
 
-Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.04.2 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
+Use https://github.com/OpenPLi/openpli-oe-core (test branch) with Ubuntu 16.04.2 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 rm -rf meta-dream
 git clone https://github.com/DMM-PLi/meta-dream.git
