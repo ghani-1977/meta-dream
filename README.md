@@ -19,7 +19,7 @@ How does it work? Simply with PLi's OE!
 Use https://github.com/OpenPLi/openpli-oe-core (test branch) with Ubuntu 16.04.2 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 rm -rf meta-dream
-git clone https://github.com/DMM-PLi/meta-dream.git
+git clone -b test1 https://github.com/DMM-PLi/meta-dream.git
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
