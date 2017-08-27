@@ -37,6 +37,7 @@ FASTBOOTRDEPENDS_flash-scripts = " \
 
 RDEPENDS_${PN} = " \
     flash-scripts \
+    gpgv \
     pigz \
     util-linux-mount \
 "
