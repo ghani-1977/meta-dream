@@ -20,7 +20,7 @@ git clone -b test1 https://github.com/DMM-PLi/meta-dream.git
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
-git pull origin master
+git pull origin test1
 ```
 each time you do "make update" for the OE.
 
