@@ -34,7 +34,7 @@ KERNEL_BUILTIN_MODULES_dm8000 = "\
 	"
 KERNEL_BUILTIN_MODULES_dm800se = "\
 	kernel-module-block2mtd \
-	kernel-module-stv0299 \
+	kernel-module-stv0299-3.2-${MACHINE} \
 	kernel-module-alps-bsbe1 \
 	kernel-module-alps-bsbe1-c01a \
 	kernel-module-alps-bsbe2 \
