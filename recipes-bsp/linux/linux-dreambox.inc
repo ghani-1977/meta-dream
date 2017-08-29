@@ -96,6 +96,28 @@ KERNEL_BUILTIN_MODULES_dm7020hd = "\
 	kernel-module-tmp100 \
 	kernel-module-tu1216 \
 	"
+KERNEL_BUILTIN_MODULES_dm7020hdv2 = "\
+	kernel-module-block2mtd \
+	kernel-module-fuse \
+	kernel-module-stv0299-3.2-${MACHINE} \
+	kernel-module-alps-bsbe1 \
+	kernel-module-alps-bsbe1-c01a \
+	kernel-module-alps-bsbe2 \
+	kernel-module-bcm4506 \
+	kernel-module-bcm7405 \ 
+	kernel-module-cu1216mk3 \
+	kernel-module-cxd1981 \
+	kernel-module-dreambox-keyboard \
+	kernel-module-dreambox-rc2 \
+	kernel-module-helper \
+	kernel-module-lcd \
+	kernel-module-lnb-ctrl \
+	kernel-module-si2166b \
+	kernel-module-si2169c \
+	kernel-module-stb-core \
+	kernel-module-tmp100 \
+	kernel-module-tu1216 \
+	"
 KERNEL_BUILTIN_MODULES_dm500hd = "\
 	kernel-module-block2mtd \
 	kernel-module-bcm4506 \
