@@ -14,7 +14,7 @@ SRC_URI = " \
 			file://modules \
 "
 
-inherit module
+inherit module-base
 
 do_compile() {
 }
@@ -23,6 +23,7 @@ do_install() {
 	install -d ${D}${sysconfdir}/modules-load.d
 	install -m 0644 ${WORKDIR}/modules ${D}${sysconfdir}/modules-load.d/${PN}.conf
 	install -d ${D}/lib/modules/${DM_LOCALVERSION}/extra
+	install -m 0644 ${WORKDIR}/LICENSE ${D}/lib/modules/${DM_LOCALVERSION}/extra
 	install -m 0644 ${WORKDIR}/*.ko ${D}/lib/modules/${DM_LOCALVERSION}/extra
 }
 

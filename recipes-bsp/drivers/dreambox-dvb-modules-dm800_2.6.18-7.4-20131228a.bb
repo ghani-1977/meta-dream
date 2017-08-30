@@ -14,7 +14,7 @@ SRC_URI = "http://source.mynonpublic.com/dreambox/dreambox-dvb-modules-${MACHINE
        file://modules \
 "
 
-inherit module
+inherit module-base
 
 do_compile() {
 }
@@ -38,4 +38,4 @@ DRIVERDATE = "${@'${PV}'.split('-')[-1]}"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/dreambox-dvb-modules:"
 
-FILES_${PN} += "${sysconfdir}/modules-load.d/${PN}.conf /lib/modules/${DM_LOCALVERSION}/extra/LICENSE"
+FILES_${PN} += "${sysconfdir}/modules-load.d/${PN}.conf /lib/modules/${DM_LOCALVERSION}/extra"
