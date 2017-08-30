@@ -10,10 +10,15 @@ do_upx() {
 		else
 			find "${WORKDIR}/packages-split" -type f -executable | while read line
 			do
-				if [ "`file -b "${line}" | cut -d, -f1`" == "ELF 32-bit LSB executable" ]
+				if echo "${line}" | grep -q '/\.debug/'
 				then
-					echo "Let's try and compress: ${line}"
-					upx --best --ultra-brute "${line}" || exit 0
+					echo "Skipping debug binary: ${line}"
+				else
+					if [ "`file -b "${line}" | cut -d, -f1`" == "ELF 32-bit LSB executable" ]
+					then
+						echo "Let's try and compress: ${line}"
+						upx --best --ultra-brute "${line}" || true
+					fi
 				fi
 			done
 		fi
