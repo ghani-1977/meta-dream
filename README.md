@@ -19,6 +19,13 @@ rm -rf meta-dream
 git clone -b test1 https://github.com/DMM-PLi/meta-dream.git
 rm -f meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
 ```
+Delete line 185-188 in the meta-openpli/recipes-openpli/enigma2/enigma2.bb file:
+```
+-PV_enigma2-fonts = "2017.04.30"
+-PR_enigma2-fonts = "r0"
+-PKGV_enigma2-fonts = "${PV_enigma2-fonts}"
+-PKGR_enigma2-fonts = "${PR_enigma2-fonts}"
+```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
 git pull origin test1
