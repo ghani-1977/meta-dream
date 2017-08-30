@@ -17,6 +17,7 @@ Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.0
 ```
 rm -rf meta-dream
 git clone https://github.com/DMM-PLi/meta-dream.git
+rm -f meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
 ```
 Remove bbappend OpenWebif in meta-openpli.
 ```
