@@ -13,112 +13,26 @@ PACKAGES_DYNAMIC = "kernel-*"
 KERNEL_BUILTIN_MODULES = "kernel-module-block2mtd"
 
 KERNEL_BUILTIN_MODULES_dm8000 = "\
-	kernel-module-alps-bsbe1 \
-	kernel-module-alps-bsbe1-c01a \
-	kernel-module-alps-bsbe2 \
-	kernel-module-bcm4501 \
-	kernel-module-bcm4506 \
-	kernel-module-bcm7400 \
-	kernel-module-cu1216mk3 \
-	kernel-module-cxd1981 \
-	kernel-module-dreambox-keyboard \
-	kernel-module-dreambox-rc2 \
-	kernel-module-fpga \
-	kernel-module-helper \
-	kernel-module-lcd \
-	kernel-module-lnb-ctrl \
-	kernel-module-max4397 \
-	kernel-module-stb-core \
-	kernel-module-tu1216 \
 	kernel-module-stv0299 \
 	"
 KERNEL_BUILTIN_MODULES_dm800se = "\
 	kernel-module-block2mtd \
 	kernel-module-stv0299 \
-	kernel-module-alps-bsbe1 \
-	kernel-module-alps-bsbe1-c01a \
-	kernel-module-alps-bsbe2 \
-	kernel-module-bcm4506 \
-	kernel-module-bcm7405 \
-	kernel-module-cu1216mk3 \
-	kernel-module-cxd1981 \
-	kernel-module-dreambox-keyboard \
-	kernel-module-dreambox-rc2 \
-	kernel-module-helper \
-	kernel-module-lcd \
-	kernel-module-lnb-ctrl \
-	kernel-module-si2166b \
-	kernel-module-si2169c \
-	kernel-module-stb-core \
-	kernel-module-tmp100 \
-	kernel-module-tu1216 \
 	"
 KERNEL_BUILTIN_MODULES_dm800sev2 = "\
 	kernel-module-block2mtd \
 	kernel-module-stv0299 \
-	kernel-module-alps-bsbe1 \
-	kernel-module-alps-bsbe1-c01a \
-	kernel-module-alps-bsbe2 \
-	kernel-module-bcm4506 \
-	kernel-module-bcm7405 \
-	kernel-module-cu1216mk3 \
-	kernel-module-cxd1981 \
-	kernel-module-dreambox-keyboard \
-	kernel-module-dreambox-rc2 \
-	kernel-module-helper \
-	kernel-module-lcd \
-	kernel-module-lnb-ctrl \
-	kernel-module-si2166b \
-	kernel-module-si2169c \
-	kernel-module-stb-core \
-	kernel-module-tmp100 \
-	kernel-module-tu1216 \
 	"
 KERNEL_BUILTIN_MODULES_dm7020hd = "\
 	kernel-module-block2mtd \
 	kernel-module-fuse \
 	kernel-module-stv0299 \
-	kernel-module-alps-bsbe1 \
-	kernel-module-alps-bsbe1-c01a \
-	kernel-module-alps-bsbe2 \
-	kernel-module-bcm4506 \
-	kernel-module-bcm7405 \ 
-	kernel-module-cu1216mk3 \
-	kernel-module-cxd1981 \
-	kernel-module-dreambox-keyboard \
-	kernel-module-dreambox-rc2 \
-	kernel-module-helper \
-	kernel-module-lcd \
-	kernel-module-lnb-ctrl \
-	kernel-module-si2166b \
-	kernel-module-si2169c \
-	kernel-module-stb-core \
-	kernel-module-tmp100 \
-	kernel-module-tu1216 \
 	"
 KERNEL_BUILTIN_MODULES_dm500hd = "\
 	kernel-module-block2mtd \
-	kernel-module-bcm4506 \
-	kernel-module-bcm7405 \
-	kernel-module-cxd1981 \
-	kernel-module-dreambox-keyboard \
-	kernel-module-dreambox-rc2 \
-	kernel-module-helper \
-	kernel-module-lnb-ctrl \
-	kernel-module-stb-core \
-	kernel-module-tmp100 \
 	"
 KERNEL_BUILTIN_MODULES_dm500hdv2 = "\
 	kernel-module-block2mtd \
-	kernel-module-bcm4506 \
-	kernel-module-bcm7405 \
-	kernel-module-cxd1981 \
-	kernel-module-dreambox-keyboard \
-	kernel-module-dreambox-rc2 \
-	kernel-module-helper \
-	kernel-module-lnb-ctrl \
-	kernel-module-stb-core \
-	kernel-module-tmp100 \
 	"
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
