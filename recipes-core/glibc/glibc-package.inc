@@ -75,7 +75,7 @@ DESCRIPTION_${PN}-utils = "Miscellaneous utilities including getconf, iconf, loc
 DESCRIPTION_libsotruss = "Library to support sotruss which traces calls through PLTs"
 DESCRIPTION_tzcode = "tzcode, timezone zoneinfo utils -- zic, zdump, tzselect"
 
-inherit libc-common multilib_header
+inherit libc-common multilib_header upx_compress
 
 do_install_append () {
 	rm -f ${D}${sysconfdir}/localtime

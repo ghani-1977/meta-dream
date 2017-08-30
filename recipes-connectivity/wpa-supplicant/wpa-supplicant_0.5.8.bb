@@ -71,5 +71,7 @@ do_install () {
 
 }
 
+inherit upx_compress
+
 SRC_URI[md5sum] = "7bb22f2bcdeed54b3fb5407d6d8bc9bb"
 SRC_URI[sha256sum] = "2f9755e2e3f96d26380857ef95be7765e6e276f6b53194c70633c027485d67f0"
