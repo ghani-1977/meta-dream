@@ -17,6 +17,7 @@ Use https://github.com/OpenPLi/openpli-oe-core (test1 branch) with Ubuntu 16.04.
 ```
 rm -rf meta-dream
 git clone -b test1 https://github.com/DMM-PLi/meta-dream.git
+rm -f meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
