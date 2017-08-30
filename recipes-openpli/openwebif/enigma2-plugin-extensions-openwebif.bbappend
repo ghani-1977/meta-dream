@@ -6,7 +6,7 @@ SRC_URI += "file://get-rid-of-orgdream-check.patch \
 
 python do_cleanup () {
     boxtypes = [
-        ('dm800', 'dm800hd.png', 'dm_normal.png', 'dmm.html'),
+        ('dm800', 'dm800.jpg', 'dm_normal.png', 'dmm.html'),
         ('dm500hd', 'dm500hd.png', 'dm_normal.png', 'dmm.html'),
         ('dm500hdv2', 'dm500hd.png', 'dm_normal.png', 'dmm.html'),
         ('dm7020hd', 'dm7020hd.png', 'dmm2.png', 'dmm2.html'),
