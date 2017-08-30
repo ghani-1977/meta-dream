@@ -17,6 +17,7 @@ Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.0
 ```
 rm -rf meta-dream
 git clone https://github.com/DMM-PLi/meta-dream.git
+rm -f meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
@@ -26,7 +27,7 @@ each time you do "make update" for the OE.
 
 Experimental machines:
 ```
-dm820 - PLi's OE isn't recent enough!
-dm7080 - PLi's OE isn't recent enough!
+dm820 - PLi's develop branch isn't recent enough, You need to use test1 branch.
+dm7080 - PLi's develop branch isn't recent enough, You need to use test1 branch.
 ```
 We're independent so if you think you can help you're welcome to send us merge requests.
