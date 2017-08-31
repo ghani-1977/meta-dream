@@ -36,8 +36,8 @@ Delete line 185-188 in the meta-openpli/recipes-openpli/enigma2/enigma2.bb file:
 ```
 In the meta-openpli/recipes-openpli/images/openpli-enigma2-feed.bb file, change iperf to iperf3.
 ```
-	-iperf \
-  +iperf3 \
+-iperf \
++iperf3 \
 ```
 For e2openplugins, edit after fetch the meta-openpli/recipes-openpli/e2openplugins/enigma2-plugin-extensions-bitrate.bb file
 ```
