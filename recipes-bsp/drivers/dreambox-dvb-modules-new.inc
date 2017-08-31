@@ -1,7 +1,7 @@
 SUMMARY = "Hardware drivers for Dreambox"
 SECTION = "base"
 LICENSE = "CLOSED"
-DEPENDS += "virtual/kernel gnupg"
+DEPENDS += "virtual/kernel"
 PRIORITY = "required"
 INC_PR = "r7"
 
@@ -15,7 +15,7 @@ inherit module-base
 
 addtask make_scripts after do_patch before do_compile
 do_make_scripts[lockfiles] = "${TMPDIR}/kernel-scripts.lock"
-do_make_scripts[depends] += "virtual/kernel:do_shared_workdir"
+do_make_scripts[depends] += "virtual/kernel:do_shared_workdir gnupg:do_populate_sysroot"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
