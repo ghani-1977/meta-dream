@@ -8,5 +8,7 @@ SRC_URI_append_dm8000 = " \
     file://fix-wrong-driver-date.patch \
 "
 
+RDEPENDS_${PN} += "font-valis-enigma"
+
 PYTHON_RDEPS += "python-importlib \
 "
