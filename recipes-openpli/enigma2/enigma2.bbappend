@@ -6,6 +6,6 @@ SRC_URI_append_dm800 = " \
 
 inherit upx_compress
 
-SRC_URI_append_dm8000 = " \
+SRC_URI_append_dm8000 += " \
     file://fix-wrong-driver-date.patch \
 "
