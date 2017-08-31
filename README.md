@@ -16,8 +16,14 @@ How does it work? Simply with PLi's OE!
 Use https://github.com/OpenPLi/openpli-oe-core (test1 branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 rm -rf meta-dream
+
 git clone -b test1 https://github.com/DMM-PLi/meta-dream.git
+
 rm -f meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
+
+cp -f meta-dream/recipes-daemons/vsftpd/vsftpd_3.0.3.bb meta-openpli/recipes-daemons/vsftpd/vsftpd_3.0.3.bb
+
+cp -f meta-dream/recipes-connectivity/samba/samba_4.6.%.bbappend meta-openpli/recipes-connectivity/samba/samba_4.%.bbappend
 ```
 Delete line 185-188 in the meta-openpli/recipes-openpli/enigma2/enigma2.bb file:
 ```
