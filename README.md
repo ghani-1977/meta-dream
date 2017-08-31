@@ -21,6 +21,8 @@ git clone -b test1 https://github.com/DMM-PLi/meta-dream.git
 
 rm -f meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
 
+rm -f meta-openpli/recipes-filesystems/smbnetfs/smbnetfs_git.bbappend
+
 cp -f meta-dream/recipes-daemons/vsftpd/vsftpd_3.0.3.bb meta-openpli/recipes-daemons/vsftpd/vsftpd_3.0.3.bb
 
 cp -f meta-dream/recipes-connectivity/samba/samba_4.6.%.bbappend meta-openpli/recipes-connectivity/samba/samba_4.%.bbappend
