@@ -1,1 +1,1 @@
-inherit pkgconfig
+inherit gettext
