@@ -42,7 +42,7 @@ For e2openplugins, edit after fetch the meta-openpli/recipes-openpli/e2openplugi
 The meta-openpli/recipes-openpli/e2openplugins/enigma2-plugin-systemplugins-autobouquetsmaker.bb file too.
 ```
 -inherit autotools-brokensep gitpkgv pythonnative
-+inherit autotools-brokensep gitpkgv pythonnative setuptools
++inherit autotools-brokensep gettext gitpkgv pythonnative setuptools
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
