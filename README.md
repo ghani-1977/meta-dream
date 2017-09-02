@@ -37,12 +37,12 @@ In the meta-openpli/recipes-openpli/images/openpli-enigma2-feed.bb file, change 
 For e2openplugins, edit after fetch the meta-openpli/recipes-openpli/e2openplugins/enigma2-plugin-extensions-bitrate.bb file
 ```
 -inherit autotools
-+inherit autotools setuptools
++inherit setuptools autotools
 ```
 The meta-openpli/recipes-openpli/e2openplugins/enigma2-plugin-systemplugins-autobouquetsmaker.bb file too.
 ```
 -inherit autotools-brokensep gitpkgv pythonnative
-+inherit autotools-brokensep gettext gitpkgv pythonnative setuptools
++inherit setuptools autotools-brokensep gettext gitpkgv pythonnative
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
