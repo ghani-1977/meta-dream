@@ -16,15 +16,10 @@ How does it work? Simply with PLi's OE!
 Use https://github.com/OpenPLi/openpli-oe-core (test1 branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 rm -rf meta-dream
-
 git clone -b test1 https://github.com/DMM-PLi/meta-dream.git
-
 rm -f meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
-
 rm -f meta-openpli/recipes-filesystems/smbnetfs/smbnetfs_git.bbappend
-
 cp -R meta-dream/recipes-daemons/vsftpd/ meta-openpli/recipes-daemons/
-
 cp -f meta-dream/recipes-connectivity/samba/samba_4.6.%.bbappend meta-openpli/recipes-connectivity/samba/samba_4.%.bbappend
 ```
 Delete line 185-188 in the meta-openpli/recipes-openpli/enigma2/enigma2.bb file:
@@ -42,12 +37,12 @@ In the meta-openpli/recipes-openpli/images/openpli-enigma2-feed.bb file, change 
 For e2openplugins, edit after fetch the meta-openpli/recipes-openpli/e2openplugins/enigma2-plugin-extensions-bitrate.bb file
 ```
 -inherit autotools
-+inherit setuptools autotools
++inherit autotools setuptools
 ```
 The meta-openpli/recipes-openpli/e2openplugins/enigma2-plugin-systemplugins-autobouquetsmaker.bb file too.
 ```
 -inherit autotools-brokensep gitpkgv pythonnative
-+inherit setuptools autotools-brokensep gitpkgv pythonnative
++inherit autotools-brokensep gitpkgv pythonnative setuptools
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
