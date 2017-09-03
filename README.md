@@ -23,6 +23,7 @@ cp -R meta-dream/recipes-daemons/vsftpd/ meta-openpli/recipes-daemons/
 cp -f meta-dream/recipes-connectivity/samba/samba_4.6.%.bbappend meta-openpli/recipes-connectivity/samba/samba_4.%.bbappend
 cp -f meta-dream/recipes-connectivity/inadyn-mt/inadyn-mt.bb meta-openpli/recipes-connectivity/inadyn-mt/inadyn-mt.bb
 cp -R meta-dream/recipes-openpli/e2openplugins-extra/ meta-openpli/recipes-openpli/
+rm -f meta-dream/recipes-openpli/e2openplugins-extra/enigma2-plugin-extensions-bitrate.bb
 ```
 Delete line 185-188 in the meta-openpli/recipes-openpli/enigma2/enigma2.bb file:
 ```
