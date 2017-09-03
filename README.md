@@ -15,27 +15,8 @@ How does it work? Simply with PLi's OE!
 
 Use https://github.com/OpenPLi/openpli-oe-core (test1 branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
-rm -rf meta-dream
-git clone -b test1 https://github.com/DMM-PLi/meta-dream.git
-rm -f meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
-rm -f meta-openpli/recipes-filesystems/smbnetfs/smbnetfs_git.bbappend
-cp -R meta-dream/recipes-daemons/vsftpd/ meta-openpli/recipes-daemons/
-cp -f meta-dream/recipes-connectivity/samba/samba_4.6.%.bbappend meta-openpli/recipes-connectivity/samba/samba_4.%.bbappend
-cp -f meta-dream/recipes-connectivity/inadyn-mt/inadyn-mt.bb meta-openpli/recipes-connectivity/inadyn-mt/inadyn-mt.bb
-cp -R meta-dream/recipes-openpli/e2openplugins-extra/ meta-openpli/recipes-openpli/
-rm -f meta-dream/recipes-openpli/e2openplugins-extra/enigma2-plugin-extensions-bitrate.bb
-```
-Delete line 185-188 in the meta-openpli/recipes-openpli/enigma2/enigma2.bb file:
-```
--PV_enigma2-fonts = "2017.04.30"
--PR_enigma2-fonts = "r0"
--PKGV_enigma2-fonts = "${PV_enigma2-fonts}"
--PKGR_enigma2-fonts = "${PR_enigma2-fonts}"
-```
-In the meta-openpli/recipes-openpli/images/openpli-enigma2-feed.bb file, change iperf to iperf3.
-```
--iperf \
-+iperf3 \
+wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-test1.sh
+sh Dreamer-test1.sh
 ```
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
