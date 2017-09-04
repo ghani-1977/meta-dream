@@ -28,7 +28,7 @@ each time you do "make update" for the OE.
 
 Experimental machines:
 ```
-dm820
-dm7080
+dm820 - kernel 3.4.113 driver 20170711 secondstage 18
+dm7080 - kernel 3.4.113 driver 20170711 secondstage 14
 ```
 We're independent so if you think you can help you're welcome to send us merge requests.
