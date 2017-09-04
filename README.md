@@ -18,6 +18,8 @@ Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.0
 wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-develop.sh
 sh Dreamer-develop.sh
 ```
+You must run Dreamer-develop.sh only once!
+
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
 git pull origin master
