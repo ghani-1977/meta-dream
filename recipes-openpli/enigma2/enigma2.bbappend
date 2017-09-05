@@ -13,5 +13,4 @@ SRC_URI_append_dm8000 += " \
 RDEPENDS_${PN} += "font-valis-enigma"
 
 PYTHON_RDEPS += "python-importlib \
-				 python-utf8-hack \
 "
