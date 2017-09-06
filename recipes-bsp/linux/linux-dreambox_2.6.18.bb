@@ -3,15 +3,14 @@ SECTION = "kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 MACHINE_KERNEL_PR = "r7.4"
-INC_PR = "19"
+INC_PR = "20"
 PATCHREV = "ac6cc9511a5f70eaa584c63fc5c3de33cae1d0e7"
 
-COMPATIBLE_MACHINE = "dm800$"
+COMPATIBLE_MACHINE = "dm800"
 
 inherit kernel siteinfo machine_kernel_pr
 
 PRECOMPILED_ARCH = "${MACHINE}"
-PRECOMPILED_ARCH_dm7020hdv2 = "dm7020hd"
 LOCALVERSION = "-${PRECOMPILED_ARCH}"
 
 PACKAGES_DYNAMIC = "kernel-*"
@@ -31,7 +30,6 @@ RPROVIDES_kernel-base = "kernel-${KERNEL_VERSION}"
 RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION} ${KERNEL_BUILTIN_MODULES}"
 
 USB_ROOT = "/dev/sdb2"
-USB_ROOT_dm8000 = "/dev/sdf2"
 
 CMDLINE_JFFS2 = "root=/dev/mtdblock3 rootfstype=jffs2 rw ${CMDLINE_CONSOLE}"
 CMDLINE_UBI = "ubi.mtd=root root=ubi0:rootfs rootfstype=ubifs rw ${CMDLINE_CONSOLE}"
@@ -50,7 +48,6 @@ SRC_URI = " \
         file://linux-2.6.18-dvb-core-headers-20100904.patch \
         file://linux-2.6.18-dvb-frontends-headers-20100904.patch \
         file://stblinux-2.6.18-fixed-brcmnand-buffer-overflow.patch \
-        file://stblinux-2.6.18-brcmnand-fixed-dm7020hd-oob-write-op.patch \
         file://stblinux-2.6.18-libata-revert-no-more-needed-change.patch \
         file://stblinux-2.6.18-libata-hdd-spinup-workaround.patch \
         file://kbuild-fix-make-incompatibility.patch \
@@ -74,20 +71,6 @@ SRC_URI = " \
 	file://add_resolution_to_absinfo.patch \
 	file://add_strcasecmp.patch \
 	file://defconfig \
-"
-
-SRC_URI_append_dm8000 = " \
-	file://linux-2.6.18-disable-unneeded-uarts.patch \
-	file://linux-2.6.18-use-full-flash.patch \
-"
-
-SRC_URI_append_dm800se = " \
-	file://linux-2.6.18-swap-sata-ports.patch \
-	file://linux-2.6.18-fix-serial-dm800se.patch \
-"
-
-SRC_URI_append_dm500hd = " \
-        file://linux-2.6.18-fix-serial-dm500hd.patch \
 "
 
 SRC_URI[kernel.md5sum] = "296a6d150d260144639c3664d127d174"
@@ -150,18 +133,6 @@ do_install_append() {
 # For packages that RDEPEND on particular kernel modules, list the ones built into
 # the kernel here, so that it is known that the kernel has them built in.
 KERNEL_BUILTIN_MODULES = ""
-
-KERNEL_BUILTIN_MODULES_dm8000 = "\
-	kernel-module-aes-generic \
-	kernel-module-crc32c \
-	kernel-module-mac80211 \
-	kernel-module-cfg80211 \
-	kernel-module-ath \
-	kernel-module-ath5k \
-	kernel-module-sr-mod \
-	kernel-module-isofs \
-	kernel-module-udf \
-	"
 
 do_rm_work() {
 }
