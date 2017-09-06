@@ -28,6 +28,11 @@ KERNEL_BUILTIN_MODULES_dm7020hd = "\
 	kernel-module-fuse \
 	kernel-module-stv0299 \
 	"
+KERNEL_BUILTIN_MODULES_dm7020hdv2 = "\
+	kernel-module-block2mtd \
+	kernel-module-fuse \
+	kernel-module-stv0299 \
+	"
 KERNEL_BUILTIN_MODULES_dm500hd = "\
 	kernel-module-block2mtd \
 	"
