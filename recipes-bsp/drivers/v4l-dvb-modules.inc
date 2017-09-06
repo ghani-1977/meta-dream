@@ -5,6 +5,8 @@ require conf/license/openpli-gplv2.inc
 
 inherit module
 
+COMPATIBLE_MACHINE = "dm800"
+
 INHIBIT_PACKAGE_STRIP = "1"
 
 PACKAGES_DYNAMIC += "v4l-dvb-module-*"
