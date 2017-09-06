@@ -19,13 +19,6 @@ SRC_URI = " \
 			file://rtl8712-backport-c.patch \
 			file://rtl8712-backport-d.patch \
 			file://make-3.82-hack.patch \
-			file://0001-SCSI-sd-Use-SCSI-read-write-16-with-32-bit-LBA-drive.patch;apply=no \
-			file://0002-add-crypto-api-xz-support.patch;apply=no \
-			file://0003-add-XZ-compression-support-to-UBIFS.patch;apply=no \
-			file://0004-block2mtd-add-possibility-to-change-the-writesize.patch;apply=no \
-			file://0005-block2mtd-add-possibility-to-remove-block2mtd-device.patch;apply=no \
-			file://0006-mtd-block2mtd-fix-recursive-call-of-mtd_writev.patch;apply=no \
-			file://0007-mtd-block2mtd-throttle-writes-by-calling-balance_dir.patch;apply=no \
 			file://0001-brmcnand_base-disable-flash-BBT-on-64MB-nand.patch \
 			file://0002-ubifs-add-config-option-to-use-zlib-as-default-compr.patch \
 			file://em28xx_fix_terratec_entries.patch \
@@ -37,21 +30,15 @@ SRC_URI = " \
 			file://dvb_usb_disable_rc_polling.patch \
 			file://dvb-usb-smsdvb_fix_frontend.patch \
 			file://0001-it913x-backport-changes-to-3.2-kernel.patch \
-			file://0001-linuxtv-api-DMM-drivers-are-now-ready-for-linux-tv-a.patch;apply=no \
 			file://rtl8712-fix-warnings.patch \
 			file://fixme-hardfloat.patch \
 			file://0001-correctly-initiate-nand-flash-ecc-config-when-old-2n.patch \
-			file://kernel-gcc6.patch \
+			file://kernel-add-support-for-gcc6.patch \
 			file://0001-misc-latin1-to-utf8-conversions.patch \
 			file://defconfig \
 			file://0001-dvb_frontend-backport-multistream-support.patch \
-			file://0007-CHROMIUM-make-3.82-hack-to-fix-differing-behaviour-b.patch;apply=no \
 			file://0008-MIPS-Fix-build-with-binutils-2.24.51.patch \
-			file://0009-MIPS-Refactor-clear_page-and-copy_page-functions.patch;apply=no \
 			file://0010-BRCMSTB-Fix-build-with-binutils-2.24.51.patch \
-			file://0011-staging-rtl8712-rtl8712-avoid-lots-of-build-warnings.patch;apply=no \
-			file://kernel-add-support-for-gcc6.patch;apply=no \
-			file://misc_latin1_to_utf8_conversions.patch;apply=no \
 "
 
 SRC_URI[kernel.md5sum] = "7ceb61f87c097fc17509844b71268935"
