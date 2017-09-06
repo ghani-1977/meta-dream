@@ -1,6 +1,6 @@
 MACHINE_KERNEL_PR_append = ".${INC_PR}.57"
 
-COMPATIBLE_MACHINE = "dm[0-9]+.*"
+COMPATIBLE_MACHINE = "dm500hd|dm500hdv2|dm800se|dm800sev2|dm7020hd|dm7020hdv2|dm8000"
 
 PATCHLEVEL = "92"
 

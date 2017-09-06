@@ -1,5 +1,7 @@
 inherit kernel machine_kernel_pr
 
+COMPATIBLE_MACHINE = "dm900"
+
 MACHINE_KERNEL_PR_append = ".24"
 
 PATCHREV = "152c34292cdef7d9cf7e5f2f5c6154f79e6d7a99"
