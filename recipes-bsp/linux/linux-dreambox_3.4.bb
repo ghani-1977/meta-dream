@@ -59,7 +59,7 @@ if [ -z "$D" ]; then
 fi
 }
 
-COMPATIBLE_MACHINE = "^(dm520|dm820|dm7080)$"
+COMPATIBLE_MACHINE = "dm520|dm820|dm7080"
 
 do_rm_work() {
 }
