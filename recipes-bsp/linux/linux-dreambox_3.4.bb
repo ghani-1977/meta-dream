@@ -1,6 +1,6 @@
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = ".15"
+MACHINE_KERNEL_PR_append = ".16"
 
 PATCHREV = "30070c78a23d461935d9db0b6ce03afc70a10c51"
 PATCHLEVEL = "113"
@@ -47,10 +47,6 @@ KERNEL_IMAGETYPES_dm7080 = "vmlinux.gz"
 KERNEL_ENABLE_CGROUPS = "1"
 
 RDEPENDS_kernel-image = "flash-scripts"
-
-do_install_prepend() {
-install -m 0644 ${B}/arch/mips/boot/vmlinux.bin ${B}/
-}
 
 pkg_postinst_kernel-image () {
 #!/bin/sh
