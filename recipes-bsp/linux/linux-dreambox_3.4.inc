@@ -9,7 +9,7 @@ RPROVIDES_kernel-base = "kernel-${LINUX_VERSION}"
 RPROVIDES_kernel-image = "kernel-image-${LINUX_VERSION}"
 
 do_install_append() {
-        if [ "${KERNEL_IMAGETYPE}" = "vmlinux" ]; then
+        if [ "${KERNEL_IMAGETYPE}" = "vmlinux.bin" ]; then
                 # We want a stripped kernel that gets gzipped and booted from and
                 # an unstripped version for debugging, which will get into the
                 # kernel-vmlinux package. When booting vmlinux directly, work on a copy.
