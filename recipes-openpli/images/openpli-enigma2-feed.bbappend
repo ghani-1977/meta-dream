@@ -4,8 +4,5 @@ OPTIONAL_PACKAGES_remove_dm800 = " \
 
 OPTIONAL_PACKAGES_append = " \
 	upx \
+	smbnetfs \
 	"
-
-OPTIONAL_PACKAGES_remove = " \
-	dvb-apps \
-"
