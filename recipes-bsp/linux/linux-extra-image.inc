@@ -8,7 +8,7 @@ do_install_append() {
 }
 
 do_install_prepend() {
-   if [ -n "${KERNEL_IMAGETYPES}" ]; then
+   if [ -n "${KERNEL_IMAGETYPE}" == "vmlinux.bin" ]; then
       install -m 0644 ${KERNEL_EXTRA_OUTPUT} ${B}/
    fi
 }

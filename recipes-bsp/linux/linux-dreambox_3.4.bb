@@ -43,10 +43,8 @@ KERNEL_IMAGETYPE_dm7080 = "vmlinux.bin"
 KERNEL_IMAGETYPES_dm520 = ""
 KERNEL_IMAGETYPES_dm820 = "vmlinux.gz"
 KERNEL_IMAGETYPES_dm7080 = "vmlinux.gz"
-KERNEL_ALT_IMAGETYPE_dm520 = "vmlinux.gz"
 KERNEL_ALT_IMAGETYPE_dm820 = "vmlinux.bin"
 KERNEL_ALT_IMAGETYPE_dm7080 = "vmlinux.bin"
-
 
 KERNEL_ENABLE_CGROUPS = "1"
 
