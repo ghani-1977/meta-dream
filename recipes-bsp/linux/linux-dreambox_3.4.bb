@@ -1,6 +1,6 @@
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = ".16"
+MACHINE_KERNEL_PR_append = ".22"
 
 PATCHREV = "30070c78a23d461935d9db0b6ce03afc70a10c51"
 PATCHLEVEL = "113"
@@ -43,6 +43,10 @@ KERNEL_IMAGETYPE_dm7080 = "vmlinux.bin"
 KERNEL_IMAGETYPES_dm520 = ""
 KERNEL_IMAGETYPES_dm820 = "vmlinux.gz"
 KERNEL_IMAGETYPES_dm7080 = "vmlinux.gz"
+KERNEL_ALT_IMAGETYPE_dm520 = "vmlinux.gz"
+KERNEL_ALT_IMAGETYPE_dm820 = "vmlinux.bin"
+KERNEL_ALT_IMAGETYPE_dm7080 = "vmlinux.bin"
+
 
 KERNEL_ENABLE_CGROUPS = "1"
 

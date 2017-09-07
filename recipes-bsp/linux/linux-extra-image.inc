@@ -9,7 +9,7 @@ do_install_append() {
 
 do_install_prepend() {
    if [ -n "${KERNEL_IMAGETYPES}" ]; then
-      install -m 0644 ${B}/arch/${ARCH}/boot/${KERNEL_IMAGETYPE} ${B}/
+      install -m 0644 ${KERNEL_EXTRA_OUTPUT} ${B}/
    fi
 }
 
