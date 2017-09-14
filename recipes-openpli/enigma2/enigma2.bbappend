@@ -13,6 +13,3 @@ SRC_URI_append_dm8000 += " \
 SRC_URI_append_dm7080 += " \
     file://add-support-dm7080.patch \
 "
-
-PYTHON_RDEPS += "python-importlib \
-"
