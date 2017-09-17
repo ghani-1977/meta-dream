@@ -15,7 +15,7 @@ dm8000 - kernel 3.2.93 driver 20140604a secondstage 84
 ```
 How does it work? Simply with PLi's OE!
 
-Use https://github.com/OpenPLi/openpli-oe-core (test1 branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
+Use https://github.com/OpenPLi/openpli-oe-core (pyro branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-test1.sh
 sh Dreamer-test1.sh
@@ -24,7 +24,7 @@ You must run Dreamer-test1.sh only once!
 
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
-git pull origin test1
+git pull origin pyro
 ```
 each time you do "make update" for the OE.
 
