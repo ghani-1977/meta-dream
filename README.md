@@ -17,10 +17,10 @@ How does it work? Simply with PLi's OE!
 
 Use https://github.com/OpenPLi/openpli-oe-core (pyro branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
-wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-test1.sh
-sh Dreamer-test1.sh
+wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-pyro.sh
+sh Dreamer-pyro.sh
 ```
-You must run Dreamer-test1.sh only once!
+You must run Dreamer-pyro.sh only once!
 
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
