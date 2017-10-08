@@ -6,7 +6,7 @@ dm520 - kernel 3.4.113 driver 20170801 secondstage 3
 dm800 - kernel 2.6.18 driver 20131228a secondstage 84
 dm800se - kernel 3.2.93 driver 20151201 secondstage 84
 dm800sev2 - kernel 3.2.93 driver 20151201 secondstage 89
-dm820 - kernel 3.4.113 driver 20170711 secondstage 18
+dm820 - kernel 3.4.113 driver 20171004 secondstage 18
 dm900 - kernel 3.14.79 driver 20170801 secondstage N/A
 dm7020hd - kernel 3.2.93 driver 20161019 secondstage 89
 dm7020hdv2 - kernel 3.2.93 driver 20161019 secondstage 89
