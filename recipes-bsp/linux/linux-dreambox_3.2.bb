@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.60"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.62"
 
 COMPATIBLE_MACHINE = "dm500hd|dm500hdv2|dm800se|dm800sev2|dm7020hd|dm7020hdv2|dm8000"
 
