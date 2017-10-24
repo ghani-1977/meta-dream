@@ -45,7 +45,7 @@ require glibc-options.inc
 # The main purpose of setting this variable is to prevent users from accidently
 # overriding DISTRO_FEATRUES, causing obscure build failures because of lack
 # of libc functions.
-REQUIRED_DISTRO_FEATURES = "${DISTRO_FEATURES_LIBC}"
+# REQUIRED_DISTRO_FEATURES = "${DISTRO_FEATURES_LIBC}"
 
 LEAD_SONAME = "libc.so"
 
