@@ -30,6 +30,7 @@ SRC_URI = "http://downloads.yoctoproject.org/releases/eglibc/eglibc-${PV}-svnr25
            file://timezone-re-written-tzselect-as-posix-sh.patch \
            file://0001-ptrace-protect-ptrace_peeksiginfo_args-from-redefint.patch \
            file://0002-fix-build-for-old-libcheader.patch \
+           file://nscd-no-bash.patch \
           "
 SRC_URI[md5sum] = "197836c2ba42fb146e971222647198dd"
 SRC_URI[sha256sum] = "baaa030531fc308f7820c46acdf8e1b2f8e3c1f40bcd28b6e440d1c95d170d4c"
@@ -115,7 +116,8 @@ do_compile () {
 		cd ${S}/sunrpc/rpcsvc
 		for r in ${rpcsvc}; do
 			h=`echo $r|sed -e's,\.x$,.h,'`
-			rpcgen -h $r -o $h || bbwarn "unable to generate header for $r"
+			rm -f $h
+			${B}/sunrpc/cross-rpcgen -h $r -o $h || bbwarn "${PN}: unable to generate header for $r"
 		done
 	)
 	echo "Adjust ldd script"
@@ -140,4 +142,4 @@ require glibc-package.inc
 
 BBCLASSEXTEND = "nativesdk"
 
-SSTATE_DUPWHITELIST += "${STAGING_INCDIR}/netatalk/at.h ${STAGING_INCDIR}/scsi/scsi_ioctl.h ${STAGING_INCDIR}/scsi/sg.h"
+SSTATE_DUPWHITELIST += "${STAGING_INCDIR}/netatalk/at.h"
