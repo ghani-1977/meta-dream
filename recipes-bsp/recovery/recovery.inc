@@ -50,6 +50,9 @@ RDEPENDS_${PN}_append_dm7080 = " \
 RDEPENDS_${PN}_append_dm900 = " \
     ${EMMCRDEPENDS_recovery} \
 "
+RDEPENDS_${PN}_append_dm920 = " \
+    ${EMMCRDEPENDS_recovery} \
+"
 RDEPENDS_${PN}_append_dm520 = " \
     ${NANDRDEPENDS_recovery} \
 "
@@ -67,6 +70,9 @@ RDEPENDS_flash-scripts_append_dm7080 = " \
     ${FASTBOOTRDEPENDS_flash-scripts} \
 "
 RDEPENDS_flash-scripts_append_dm900 = " \
+    ${EMMCRDEPENDS_flash-scripts} \
+"
+RDEPENDS_flash-scripts_append_dm920 = " \
     ${EMMCRDEPENDS_flash-scripts} \
 "
 RDEPENDS_flash-scripts_append_dm520 = " \

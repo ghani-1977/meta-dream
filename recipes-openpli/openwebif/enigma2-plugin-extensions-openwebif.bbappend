@@ -18,6 +18,7 @@ python do_cleanup () {
         ('dm520', 'dm520.png', 'dmm2.png', 'dmm2.html'),
         ('dm820', 'dm820.png', 'dmm2.png', 'dmm2.html'),
         ('dm900', 'dm900.png', 'dmm2.png', 'dmm2.html'),
+        ('dm920', 'dm900.png', 'dmm2.png', 'dmm2.html'),
         ('osmega', 'osmega.png', 'osmini.png', 'osmini.html'),
         ('osmini', 'osmini.png', 'osmini.png', 'osmini.html'),
         ('osminiplus', 'osminiplus.png', 'osmini.png', 'osmini.html'),
