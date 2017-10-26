@@ -69,6 +69,7 @@ do_install () {
     ln -s /etc/wpa_supplicant/ifupdown.sh ${D}${sysconfdir}/network/if-pre-up.d/wpasupplicant
     ln -s /etc/wpa_supplicant/ifupdown.sh ${D}${sysconfdir}/network/if-post-down.d/wpasupplicant
 
+    rm -Rf ${D}/var/run
 }
 
 inherit upx_compress
