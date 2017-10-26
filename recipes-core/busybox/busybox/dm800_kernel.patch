@@ -14,3 +14,28 @@
  /*
   * This is needed for ioctl_or_perror_and_die() since it only accepts pointers.
   */
+--- busybox-1.24.1/networking/libiproute/iproute.c.orig	2017-10-26 13:55:35.642106397 +0200
++++ busybox-1.24.1/networking/libiproute/iproute.c	2017-10-26 13:55:54.805583434 +0200
+@@ -18,6 +18,9 @@
+ #define RTAX_RTTVAR RTAX_HOPS
+ #endif
+ 
++#ifndef RTA_TABLE
++#define RTA_TABLE  15
++#endif
+ 
+ struct filter_t {
+ 	int tb;
+--- busybox-1.24.1/networking/libiproute/iprule.c.orig	2017-10-26 13:59:37.776498653 +0200
++++ busybox-1.24.1/networking/libiproute/iprule.c	2017-10-26 14:00:09.591630433 +0200
+@@ -21,6 +21,10 @@
+ #include "rt_names.h"
+ #include "utils.h"
+ 
++#ifndef RTA_TABLE
++#define RTA_TABLE  15
++#endif
++
+ /*
+ static void usage(void) __attribute__((noreturn));
+ 
