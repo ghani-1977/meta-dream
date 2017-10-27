@@ -30,8 +30,6 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-dreambox"
 PREFERRED_PROVIDER_virtual/blindscan-dvbs = "dreambox-blindscan-utils"
 PREFERRED_PROVIDER_virtual/blindscan-dvbc = "dreambox-blindscan-utils"
 
-PREFERRED_VERSION_samba = "${@bb.utils.contains('MACHINE_FEATURES', 'smallflash', '3.6.25', '4.%', d)}"
-
 KERNEL_IMAGETYPE = "vmlinux"
 KERNEL_OUTPUT = "${KERNEL_IMAGETYPE}"
 KERNEL_OUTPUT_DIR = "."
