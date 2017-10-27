@@ -1,5 +1,7 @@
 require recipes-mediacenter/kodi/kodi_${PV}.bb
 
+SRCREV = "${AUTOREV}"
+
 PROVIDES += "virtual/kodi"
 RPROVIDES_${PN} += "virtual/kodi"
 PROVIDES += "kodi"
