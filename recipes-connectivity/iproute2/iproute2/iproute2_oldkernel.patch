@@ -17,3 +17,17 @@
  static const char *pname = "tc-ipt";
  static const char *tname = "mangle";
  static const char *pversion = "0.1";
+--- iproute2-4.11.0/include/linux/sysinfo.h.orig	2017-10-27 16:11:24.731412300 +0200
++++ iproute2-4.11.0/include/linux/sysinfo.h	2017-10-27 16:13:12.648466590 +0200
+@@ -3,6 +3,11 @@
+ 
+ #include <linux/types.h>
+ 
++#ifndef __kernel_long_t
++typedef long     __kernel_long_t;
++typedef unsigned long   __kernel_ulong_t;
++#endif
++
+ #define SI_LOAD_SHIFT	16
+ struct sysinfo {
+ 	__kernel_long_t uptime;		/* Seconds since boot */
