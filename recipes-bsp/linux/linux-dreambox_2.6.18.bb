@@ -71,6 +71,7 @@ SRC_URI = " \
 	file://add_resolution_to_absinfo.patch \
 	file://add_strcasecmp.patch \
 	file://extra_ipv6_headers.patch \
+	file://dm-ioctl-add-data-to-struct.patch \
 	file://defconfig \
 "
 
