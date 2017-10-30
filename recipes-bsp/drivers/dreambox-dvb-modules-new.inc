@@ -5,7 +5,7 @@ DEPENDS += "virtual/kernel"
 PRIORITY = "required"
 INC_PR = "r7"
 
-PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm920', 'dm900', 'MACHINE', d)}"
+PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm920', 'dm900', MACHINE, d)}"
 
 DREAMBOX_DVB_MODULES_MIRROR ?= "http://dreamboxupdate.com/download/opendreambox/2.5.0/dreambox-dvb-modules/${KV}-${PRECOMPILED_ARCH}-${DRIVERDATE}/${PRECOMPILED_ARCH}/${MD5SUM}"
 
