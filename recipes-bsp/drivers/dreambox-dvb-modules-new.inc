@@ -97,8 +97,8 @@ do_install_append_dm920() {
 PACKAGES =+ "${PN}-lcd ${PN}-stb-core"
 
 RDEPENDS_${PN} = "dreambox-secondstage-${MACHINE} kernel-${DM_LOCALVERSION} ${PN}-stb-core"
-RDEPENDS_${PN}_dm900 = "kernel-${DM_LOCALVERSION} ${PN}-stb-core"
-RDEPENDS_${PN}_dm920 = "kernel-${DM_LOCALVERSION} ${PN}-stb-core"
+RDEPENDS_${PN}_dm900 = "kernel-${KV}-${MACHINE} ${PN}-stb-core"
+RDEPENDS_${PN}_dm920 = "kernel-${KV}-${MACHINE} ${PN}-stb-core"
 RDEPENDS_${PN}-lcd = "${PN}-stb-core"
 RRECOMMENDS_${PN} = "${PN}-lcd"
 
