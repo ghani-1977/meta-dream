@@ -7,6 +7,7 @@ dm800 - kernel 2.6.18 driver 20131228a secondstage 84
 dm800se - kernel 3.2.94 driver 20151201 secondstage 84
 dm800sev2 - kernel 3.2.94 driver 20151201 secondstage 89
 dm900 - kernel 3.14.79 driver 20170801 secondstage N/A
+dm920 - kernel 3.14.79 driver 20170801 secondstage N/A
 dm7020hd - kernel 3.2.94 driver 20161019 secondstage 89
 dm7020hdv2 - kernel 3.2.94 driver 20161019 secondstage 89
 dm8000 - kernel 3.2.94 driver 20140604a secondstage 84
@@ -29,7 +30,6 @@ each time you do "make update" for the OE.
 Experimental machines:
 ```
 dm820 - PLi's develop branch isn't recent enough, You need to use pyro branch.
-dm920 - Not yet ready!
 dm7080 - PLi's develop branch isn't recent enough, You need to use pyro branch.
 ```
 We're independent so if you think you can help you're welcome to send us merge requests.
