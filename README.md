@@ -16,7 +16,7 @@ dm8000 - kernel 3.2.94 driver 20140604a secondstage 84
 ```
 How does it work? Simply with PLi's OE!
 
-Use https://github.com/OpenPLi/openpli-oe-core (rocko branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
+Use https://github.com/MastaG/pli-oe-core (rocko branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-rocko.sh
 sh Dreamer-rocko.sh
