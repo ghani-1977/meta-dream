@@ -10,7 +10,7 @@ SRC_URI = " \
     ${KERNELORG_MIRROR}/linux/kernel/v3.x/patch-${PV}.${PATCHLEVEL}.xz;apply=yes;name=stable-patch \
     http://dreamboxupdate.com/download/kernel-patches/linux-dreambox-${PV}-${PATCHREV}.patch.xz;apply=yes;name=dream-patch \
     file://dvb_frontend-Multistream-support-3.4.patch \
-    file://kernel-add-support-for-gcc6.patch \
+    file://kernel-add-support-for-gcc7.patch \
     file://defconfig \
 "
 SRC_URI[kernel.md5sum] = "967f72983655e2479f951195953e8480"
