@@ -4,6 +4,7 @@ SECTION = "kernel/modules"
 require conf/license/openpli-gplv2.inc
 
 inherit module
+DEPENDS += "virtual/kernel"
 
 COMPATIBLE_MACHINE = "dm800"
 
