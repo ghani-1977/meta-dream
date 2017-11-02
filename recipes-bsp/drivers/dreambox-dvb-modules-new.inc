@@ -5,7 +5,7 @@ DEPENDS += "virtual/kernel"
 PRIORITY = "required"
 INC_PR = "r7"
 
-PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm920', 'dm900', 'MACHINE', d)}"
+PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm920', 'dm900', MACHINE, d)}"
 
 DREAMBOX_DVB_MODULES_MIRROR ?= "http://dreamboxupdate.com/download/opendreambox/2.5.0/dreambox-dvb-modules/${KV}-${PRECOMPILED_ARCH}-${DRIVERDATE}/${PRECOMPILED_ARCH}/${MD5SUM}"
 
@@ -97,8 +97,8 @@ do_install_append_dm920() {
 PACKAGES =+ "${PN}-lcd ${PN}-stb-core"
 
 RDEPENDS_${PN} = "dreambox-secondstage-${MACHINE} kernel-${DM_LOCALVERSION} ${PN}-stb-core"
-RDEPENDS_${PN}_dm900 = "kernel-${DM_LOCALVERSION} ${PN}-stb-core"
-RDEPENDS_${PN}_dm920 = "kernel-${DM_LOCALVERSION} ${PN}-stb-core"
+RDEPENDS_${PN}_dm900 = "kernel-${KV}-${MACHINE} ${PN}-stb-core"
+RDEPENDS_${PN}_dm920 = "kernel-${KV}-${MACHINE} ${PN}-stb-core"
 RDEPENDS_${PN}-lcd = "${PN}-stb-core"
 RRECOMMENDS_${PN} = "${PN}-lcd"
 

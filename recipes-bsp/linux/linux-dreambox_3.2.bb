@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR_append = ".${INC_PR}.63"
+MACHINE_KERNEL_PR_append = ".${INC_PR}.64"
 
 COMPATIBLE_MACHINE = "dm500hd|dm500hdv2|dm800se|dm800sev2|dm7020hd|dm7020hdv2|dm8000"
 
@@ -32,7 +32,8 @@ SRC_URI = " \
 			file://rtl8712-fix-warnings.patch \
 			file://fixme-hardfloat.patch \
 			file://0001-correctly-initiate-nand-flash-ecc-config-when-old-2n.patch \
-			file://kernel-add-support-for-gcc6.patch \
+			file://kernel-add-support-for-gcc7.patch \
+			file://fix-build-with-gcc7.patch \
 			file://0001-misc-latin1-to-utf8-conversions.patch \
 			file://defconfig \
 			file://0001-dvb_frontend-backport-multistream-support.patch \
