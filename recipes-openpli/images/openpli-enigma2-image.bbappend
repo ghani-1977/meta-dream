@@ -29,3 +29,11 @@ IMAGE_INSTALL_append_dm8000 = " \
 IMAGE_INSTALL_append_dm520 = " \
 	rt7777-legacy \
 	"
+
+IMAGE_INSTALL_append_dm820 = " \
+	rt7777-legacy \
+	"
+
+IMAGE_INSTALL_append_dm7080 = " \
+	rt7777-legacy \
+	"
