@@ -58,7 +58,6 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 	kernel-module-md4 \
 	kernel-module-ecb \
 	dreambox-boot-progress \
-	usbutils \
 	"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
