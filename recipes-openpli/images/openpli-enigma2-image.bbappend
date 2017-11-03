@@ -30,10 +30,14 @@ IMAGE_INSTALL_append_dm520 = " \
 	rt7777-legacy \
 	"
 
-IMAGE_INSTALL_append_dm820 = " \
-	rt7777-legacy \
+IMAGE_INSTALL_remove_dm800 = " \
+	ofgwrite \
 	"
 
-IMAGE_INSTALL_append_dm7080 = " \
-	rt7777-legacy \
-	"
+IMAGE_INSTALL_remove_dm800se = " \
+	ofgwrite \
+        "
+
+IMAGE_INSTALL_remove_dm500hd = " \
+	ofgwrite \
+        "
