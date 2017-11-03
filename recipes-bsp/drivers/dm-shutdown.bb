@@ -7,7 +7,7 @@ SRC_URI = "file://dm-shutdown.sh"
 INITSCRIPT_NAME = "dm-shutdown"
 INITSCRIPT_PARAMS = "start 39 0 ."
 
-inherit autotools pkgconfig update-rc.d
+inherit update-rc.d
 
 do_compile() {
 }
