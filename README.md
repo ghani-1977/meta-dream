@@ -29,7 +29,7 @@ each time you do "make update" for the OE.
 
 Experimental machines:
 ```
-dm820 - PLi's develop branch isn't recent enough, You need to use pyro branch.
-dm7080 - PLi's develop branch isn't recent enough, You need to use pyro branch.
+dm820 - PLi's develop branch isn't recent enough, You need to use pyro/rocko branch.
+dm7080 - PLi's develop branch isn't recent enough, You need to use pyro/rocko branch.
 ```
 We're independent so if you think you can help you're welcome to send us merge requests.
