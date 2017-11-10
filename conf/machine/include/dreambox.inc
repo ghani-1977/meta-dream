@@ -24,8 +24,6 @@ MACHINE_FEATURES += "alsa usbhost 3dtv switchoff tpm dreambox"
 # Add "dreambox" override for recipes
 MACHINEOVERRIDES .= ":dreambox"
 
-PREFERRED_VERSION_python-pyopenssl = "${@bb.utils.contains('MACHINE_FEATURES', 'smallflash', '0.15.1', '17.3.0', d)}"
-
 PREFERRED_PROVIDER_virtual/bootloader = "dreambox-secondstage-${MACHINE}"
 PREFERRED_PROVIDER_virtual/kernel = "linux-dreambox"
 
