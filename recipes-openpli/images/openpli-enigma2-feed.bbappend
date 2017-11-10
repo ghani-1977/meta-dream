@@ -6,7 +6,3 @@ OPTIONAL_PACKAGES_append = " \
 	upx \
 	smbnetfs \
 	"
-
-OPTIONAL_PACKAGES_append_dm800 = " \
-	usbutils \
-	"

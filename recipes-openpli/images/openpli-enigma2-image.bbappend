@@ -49,3 +49,7 @@ IMAGE_INSTALL_remove_dm800se = " \
 IMAGE_INSTALL_remove_dm500hd = " \
 	ofgwrite \
 	"
+
+IMAGE_INSTALL_append_dm800 = " \
+	usbutils \
+	"
