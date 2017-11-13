@@ -17,6 +17,13 @@ dm8000 - kernel 3.2.94 driver 20140604a secondstage 84
 How does it work? Simply with PLi's OE!
 
 Use https://github.com/MastaG/pli-oe-core (rocko branch) with Ubuntu 16.04.3 LTS as your base.
+
+If you're going to build on a distro which features glibc 2.26 or newer (such as Fedora 27 or Arch),
+then please add the following line to your local.conf:
+
+LOCALE_GENERATION_WITH_CROSS-LOCALEDEF_forcevariable = "0"
+
+See: https://bugzilla.yoctoproject.org/show_bug.cgi?id=12265
 ```
 
 For latest updates you need to open a terminal inside "meta-dreambox" folder and enter:
