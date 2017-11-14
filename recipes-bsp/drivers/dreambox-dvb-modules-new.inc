@@ -5,13 +5,11 @@ DEPENDS += "virtual/kernel"
 PRIORITY = "required"
 INC_PR = "r7"
 
-PRECOMPILED_ARCH = "${@bb.utils.contains('MACHINE', 'dm920', 'dm900', MACHINE, d)}"
+DREAMBOX_DVB_MODULES_MIRROR ?= "http://dreamboxupdate.com/download/opendreambox/2.5.0/dreambox-dvb-modules/${KV}-${MACHINE}-${DRIVERDATE}/${MACHINE}/${MD5SUM}"
 
-DREAMBOX_DVB_MODULES_MIRROR ?= "http://dreamboxupdate.com/download/opendreambox/2.5.0/dreambox-dvb-modules/${KV}-${PRECOMPILED_ARCH}-${DRIVERDATE}/${PRECOMPILED_ARCH}/${MD5SUM}"
+SRC_URI = "${DREAMBOX_DVB_MODULES_MIRROR}/dreambox-dvb-modules_${KV}-${MACHINE}-${DRIVERDATE}_${MACHINE}.tar.xz;name=${MACHINE}"
 
-SRC_URI = "${DREAMBOX_DVB_MODULES_MIRROR}/dreambox-dvb-modules_${KV}-${PRECOMPILED_ARCH}-${DRIVERDATE}_${PRECOMPILED_ARCH}.tar.xz;name=${MACHINE}"
-
-S = "${WORKDIR}/dreambox-dvb-modules_${KV}-${PRECOMPILED_ARCH}-${DRIVERDATE}_${PRECOMPILED_ARCH}"
+S = "${WORKDIR}/dreambox-dvb-modules_${KV}-${MACHINE}-${DRIVERDATE}_${MACHINE}"
 
 inherit module-base
 
@@ -113,7 +111,7 @@ FILES_${PN}-stb-core = "${sysconfdir}/modules-load.d/01-${BPN}-stb-core.conf \
 
 # We don't use KERNEL_VERSION in this recipe, because the
 # precompiled modules depend on a specific version.
-DM_LOCALVERSION = "${@'-'.join('${PV}'.split('-')[:-1])}-${PRECOMPILED_ARCH}"
+DM_LOCALVERSION = "${@'-'.join('${PV}'.split('-')[:-1])}-${MACHINE}"
 DRIVERDATE = "${@'${PV}'.split('-')[-1]}"
 
 pkg_postinst_${PN} () {
