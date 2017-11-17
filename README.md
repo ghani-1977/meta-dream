@@ -33,6 +33,8 @@ See: https://bugzilla.yoctoproject.org/show_bug.cgi?id=12265
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
 git pull origin rocko
+cd ..
+rm -rf meta-dreambox
 ```
 each time you do "make update" for the OE.
 
