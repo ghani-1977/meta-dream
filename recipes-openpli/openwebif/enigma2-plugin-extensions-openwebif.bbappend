@@ -5,6 +5,7 @@ SRC_URI += "file://get-rid-of-orgdream-check.patch \
 "
 
 python do_cleanup () {
+    # contains: MACHINE, box image, remote image, remote map
     boxtypes = [
         ('dm800', 'dm800.jpg', 'dm_normal.png', 'dmm.html'),
         ('dm500hd', 'dm500hd.png', 'dm_normal.png', 'dmm.html'),
@@ -27,6 +28,7 @@ python do_cleanup () {
         ('formuler3', 'formuler3.png', 'formuler1.png', 'formuler1.html'),
         ('formuler4', 'formuler4.png', 'formuler1.png', 'formuler1.html'),
         ('formuler4turbo', 'formuler4turbo.png', 'formuler1.png', 'formuler1.html'),
+        ('gbquad4k', 'gb7252.png', 'gb7252.png', 'gb7252.html'),
         ('hd11', 'hd11.png', 'hd1x00.png', 'hd1x00.html'),
         ('hd1100', 'hd1100.png', 'hd1x00.png', 'hd1x00.html'),
         ('hd1200', 'hd1200.png', 'hd1x00.png', 'hd1x00.html'),
@@ -59,6 +61,7 @@ python do_cleanup () {
         ('vuuno', 'uno.png', 'vu_normal.png', 'vu_normal.html'),
         ('vuuno4k', 'uno4k.png', 'vu_normal.png', 'vu_normal.html'),
         ('vuzero', 'zero.png', 'vu_normal.png', 'vu_normal.html'),
+        ('vuuno4kse', 'uno4kse.png', 'vuuno4kse.png', 'vuuno4kse.html'),
         ('wetekplay', 'wetekplay.png', 'wetekplay.png', 'wetekplay.html'),
         ('xp1000', 'xp1000.png', 'xp_rc14_normal.png', 'xp1000.html'),
         ('xpeedc', 'xpeedlx.png', 'xpeedlx.png', 'xpeedlx.html'),
@@ -79,11 +82,14 @@ python do_cleanup () {
         ('et8000', 'et8000.png', 'et8000.png', 'et8000.html'),
         ('et8500', 'et8500.png', 'et8000.png', 'et8000.html'),
         ('h3', 'h3.png', 'h3.png', 'h3.html'),
+        ('h4', 'h4.png', 'h3.png', 'h3.html'),
         ('h5', 'h5.png', 'h3.png', 'h3.html'),
         ('h7', 'h7.png', 'h3.png', 'h3.html'),
         ('i55', 'i55.png', 'i55.png', 'i55.html'),
         ('lc', 'lc.png', 'sh1.png', 'sh1.html'),
         ('sh1', 'sh1.png', 'sh1.png', 'sh1.html'),
+        ('spark', 'spark.jpg', 'spark.png', 'spark.html'),
+        ('spark7162', 'spark7162.jpg', 'spark.png', 'spark7162.html'),
     ]
 
     import os
@@ -126,7 +132,7 @@ python do_cleanup () {
                 os.remove(os.path.join(root, name))
 }
 
-addtask do_cleanup after do_install before do_package
+addtask do_cleanup after do_populate_sysroot before do_package
 
 PACKAGES =+ "${PN}-vxg"
 DESCRIPTION_${PN}-vxg = "Adds Google Chrome support to OpenWebif's WebTV"
