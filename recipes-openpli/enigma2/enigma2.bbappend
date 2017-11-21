@@ -6,7 +6,7 @@ SRC_URI_append_dm800 = " \
 
 inherit upx_compress
 
-SRC_URI_append = \
+SRC_URI_append += " \
 	file://use-ioctl-22-for-h265.patch \
 "
 
