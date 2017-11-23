@@ -1,35 +1,5 @@
---- strace-4.18/netlink.c.orig	2017-10-27 11:41:26.478162297 +0200
-+++ strace-4.18/netlink.c	2017-10-27 11:43:15.739127954 +0200
-@@ -29,6 +29,7 @@
- 
- #include "defs.h"
- #include "netlink.h"
-+#include <linux/types.h>
- #include <linux/audit.h>
- #include <linux/rtnetlink.h>
- #include <linux/xfrm.h>
---- strace-4.18/tests/netlink_audit.c.orig	2017-10-27 11:41:33.877956797 +0200
-+++ strace-4.18/tests/netlink_audit.c	2017-10-27 11:43:35.137590043 +0200
-@@ -30,6 +30,7 @@
- #include <string.h>
- #include <unistd.h>
- #include <sys/socket.h>
-+#include <linux/types.h>
- #include <linux/audit.h>
- #include "netlink.h"
- 
---- strace-4.18/tests/ptrace.c.orig	2017-10-27 11:41:45.512633681 +0200
-+++ strace-4.18/tests/ptrace.c	2017-10-27 11:43:35.139589987 +0200
-@@ -38,6 +38,7 @@
- #include <sys/wait.h>
- #include <unistd.h>
- #include "ptrace.h"
-+#include <linux/types.h>
- #include <linux/audit.h>
- 
- static const char *errstr;
---- strace-4.18/printsiginfo.c.orig	2017-10-27 11:41:52.332444289 +0200
-+++ strace-4.18/printsiginfo.c	2017-10-27 13:10:37.340532514 +0200
+--- a/printsiginfo.c	2017-10-27 11:41:52.332444289 +0200
++++ b/printsiginfo.c	2017-10-27 13:10:37.340532514 +0200
 @@ -38,6 +38,7 @@
  #include DEF_MPERS_TYPE(siginfo_t)
  
@@ -38,43 +8,58 @@
  #include <linux/audit.h>
  
  #include MPERS_DEFS
---- strace-4.18/tests-m32/netlink_audit.c.orig	2017-10-27 11:42:00.859207485 +0200
-+++ strace-4.18/tests-m32/netlink_audit.c	2017-10-27 13:10:37.341532486 +0200
-@@ -30,6 +30,7 @@
- #include <string.h>
- #include <unistd.h>
+--- a/netlink.c	2017-11-23 14:53:07.431758917 +0100
++++ b/netlink.c	2017-11-23 14:55:18.353115125 +0100
+@@ -28,6 +28,7 @@
+ 
+ #include "defs.h"
  #include <sys/socket.h>
 +#include <linux/types.h>
- #include <linux/audit.h>
- #include "netlink.h"
+ #include <linux/netlink.h>
+ #include "xlat/netlink_flags.h"
+ #include "xlat/netlink_types.h"
+--- a/tests/ptrace.c	2017-11-23 14:53:11.382648956 +0100
++++ b/tests/ptrace.c	2017-11-23 14:56:13.682575200 +0100
+@@ -29,6 +29,7 @@
  
---- strace-4.18/tests-m32/ptrace.c.orig	2017-10-27 11:42:09.485967898 +0200
-+++ strace-4.18/tests-m32/ptrace.c	2017-10-27 13:10:37.342532458 +0200
-@@ -38,6 +38,7 @@
- #include <sys/wait.h>
- #include <unistd.h>
- #include "ptrace.h"
+ #include "tests.h"
+ #include <asm/unistd.h>
 +#include <linux/types.h>
- #include <linux/audit.h>
  
- static const char *errstr;
---- strace-4.18/tests-mx32/netlink_audit.c.orig	2017-10-27 11:42:17.680740322 +0200
-+++ strace-4.18/tests-mx32/netlink_audit.c	2017-10-27 13:10:37.342532458 +0200
-@@ -30,6 +30,7 @@
- #include <string.h>
- #include <unistd.h>
- #include <sys/socket.h>
+ #ifdef __NR_rt_sigprocmask
+ 
+--- a/util.c	2017-11-23 15:01:34.832636976 +0100
++++ b/util.c	2017-11-23 15:10:03.983479256 +0100
+@@ -35,6 +35,7 @@
+ #include <sys/param.h>
+ #include <fcntl.h>
+ #include <stdarg.h>
 +#include <linux/types.h>
- #include <linux/audit.h>
- #include "netlink.h"
+ #ifdef HAVE_SYS_XATTR_H
+ # include <sys/xattr.h>
+ #endif
+@@ -1066,24 +1067,6 @@
+ }
  
---- strace-4.18/tests-mx32/ptrace.c.orig	2017-10-27 11:42:23.797570448 +0200
-+++ strace-4.18/tests-mx32/ptrace.c	2017-10-27 13:10:37.343532430 +0200
-@@ -38,6 +38,7 @@
- #include <sys/wait.h>
- #include <unistd.h>
- #include "ptrace.h"
-+#include <linux/types.h>
- #include <linux/audit.h>
+ static bool process_vm_readv_not_supported = 0;
+-#ifndef HAVE_PROCESS_VM_READV
+-/*
+- * Need to do this since process_vm_readv() is not yet available in libc.
+- * When libc is be updated, only "static bool process_vm_readv_not_supported"
+- * line should remain.
+- */
+-/* Have to avoid duplicating with the C library headers. */
+-static ssize_t strace_process_vm_readv(pid_t pid,
+-		 const struct iovec *lvec,
+-		 unsigned long liovcnt,
+-		 const struct iovec *rvec,
+-		 unsigned long riovcnt,
+-		 unsigned long flags)
+-{
+-	return syscall(__NR_process_vm_readv, (long)pid, lvec, liovcnt, rvec, riovcnt, flags);
+-}
+-# define process_vm_readv strace_process_vm_readv
+-#endif /* !HAVE_PROCESS_VM_READV */
  
- static const char *errstr;
+ static ssize_t
+ vm_read_mem(const pid_t pid, void *const laddr,
