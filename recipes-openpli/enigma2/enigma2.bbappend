@@ -11,6 +11,7 @@ SRC_URI_append += " \
 	file://fix-fp-version.patch \
 	file://tryfix-videomode.patch \
 	file://tryfix-snr-si216x-tuners.patch \
+	file://dual-tuner-letter-detection-dm7080.patch \
 "
 
 SRC_URI_append_dm8000 += " \
