@@ -22,7 +22,7 @@ index 82b5c19..ce947a5 100644
  
  eDVBCIInterfaces *eDVBCIInterfaces::instance = 0;
  
-+static char* readInputCI(int NimNumber)
++static char* readInputCI(int tuner_no)
 +{
 +	char id1[] = "NIM Socket";
 +	char id2[] = "Input_Name";
@@ -43,7 +43,7 @@ index 82b5c19..ce947a5 100644
 +
 +			p += strlen(id1);
 +			p += strcspn(p, keys1);
-+			if (*p && strtol(p, 0, 0) == NimNumber)
++			if (*p && strtol(p, 0, 0) == tuner_no)
 +				break;
 +		}
 +
@@ -76,11 +76,11 @@ index 82b5c19..ce947a5 100644
 +	return inputName;
 +}
 +
-+static std::string getTunerLetterDM(int NimNumber)
++static std::string getTunerLetterDM(int tuner_no)
 +{
-+	char *srcCI = readInputCI(NimNumber);
++	char *srcCI = readInputCI(tuner_no);
 +	if (srcCI) return std::string(srcCI);
-+	return eDVBCISlot::getTunerLetter(NimNumber);
++	return eDVBCISlot::getTunerLetter(tuner_no);
 +}
  
  eCIClient::eCIClient(eDVBCIInterfaces *handler, int socket) : eUnixDomainSocket(socket, 1, eApp), parent(handler)
