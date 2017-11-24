@@ -2,18 +2,18 @@ diff --git a/configure.ac b/configure.ac
 index e70f71b..aba82ab 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -66,6 +66,11 @@ if test `echo "$BOXTYPE" | cut -b 1-2` == "dm"; then
+@@ -65,6 +65,11 @@ AM_CONDITIONAL(HAVE_TEMPFANCONTROL, test "$BOXTYPE" == dm8000 -o "$BOXTYPE" == d
+ if test `echo "$BOXTYPE" | cut -b 1-2` == "dm"; then
  	AC_DEFINE(DREAMBOX, 1, [Dreambox hardware])
  	AC_DEFINE(KEY_PLAY_ACTUALLY_IS_KEY_PLAYPAUSE, 1,[define when rc sends a KEY_PLAY event for its KEY_PLAYPAUSE key])
- fi
 +
 +if test "$BOXTYPE" == "dm7080"; then
 +	AC_DEFINE(DREAMBOX_DUAL_TUNER, 1,[define BOXTYPE DM7080])
 +fi
 +
- if test "$BOXTYPE" == "vusolo2" -o "$BOXTYPE" == "vuduo2" -o "$BOXTYPE" == "vusolose" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuzero" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuultimo4k"; then
- 	AC_DEFINE(VUPLUS_RC_WORKAROUND, 1, [workaround for problem with vuplus event/rc driver])
  fi
+ if test "$BOXTYPE" == "vusolo2" -o "$BOXTYPE" == "vuduo2" -o "$BOXTYPE" == "vusolose" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuzero" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuuno4kse" -o "$BOXTYPE" == "vuultimo4k"; then
+ 	AC_DEFINE(VUPLUS_RC_WORKAROUND, 1, [workaround for problem with vuplus event/rc driver])
 diff --git a/lib/dvb_ci/dvbci.cpp b/lib/dvb_ci/dvbci.cpp
 index 82b5c19..ce947a5 100644
 --- a/lib/dvb_ci/dvbci.cpp
@@ -145,3 +145,16 @@ index 82b5c19..ce947a5 100644
  
  				if (base_slot != slot)
  				{
+diff --git a/lib/dvb_ci/dvbci.h b/lib/dvb_ci/dvbci.h
+index 1df9994..a2337c6 100644
+--- a/lib/dvb_ci/dvbci.h
++++ b/lib/dvb_ci/dvbci.h
+@@ -93,6 +93,8 @@ public:
+ 	int setSource(const std::string &source);
+ 	int setClockRate(int);
+ 	static std::string getTunerLetter(int tuner_no) { return std::string(1, char(65 + tuner_no)); }
++	static std::string getTunerLetterDM(int tuner_no);
++	static char* readInputCI(int tuner_no);
+ };
+ 
+ struct CIPmtHandler
