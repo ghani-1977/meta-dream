@@ -90,7 +90,7 @@ index 82b5c19..ce947a5 100644
  
  	for (eSmartPtrList<eDVBCISlot>::iterator it(m_slots.begin()); it != m_slots.end(); ++it)
 +#ifdef DREAMBOX_DUAL_TUNER
-+		setInputSource(tuner_no, getTunerLetterDM(tuner_no));
++		it->setSource(getTunerLetterDM(0));
 +#else
  		it->setSource("A");
 +#endif
