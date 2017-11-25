@@ -1,8 +1,16 @@
-diff --git a/lib/dvb/frontend.cpp b/lib/dvb/frontend.cpp
-index ced89b7..9868bb2 100644
---- a/lib/dvb/frontend.cpp
-+++ b/lib/dvb/frontend.cpp
-@@ -1178,6 +1178,10 @@ void eDVBFrontend::calculateSignalQuality(int snr, int &signalquality, int &sign
+diff -Naur e2-orig/lib/dvb/frontend.cpp e2-persianprince/lib/dvb/frontend.cpp
+--- e2-orig/lib/dvb/frontend.cpp	2017-11-25 10:23:19.938893000 +0330
++++ e2-persianprince/lib/dvb/frontend.cpp	2017-11-25 10:35:02.449549542 +0330
+@@ -1059,7 +1059,7 @@
+ 	{
+ 		ret = (snr * 240) >> 8;
+ 	}
+-	else if (strstr(m_description, "BCM4506") || strstr(m_description, "BCM4505"))
++	else if (strstr(m_description, "BCM4506") || strstr(m_description, "BCM4505") || strstr(m_description, "BCM45208"))
+ 	{
+ 		ret = (snr * 100) >> 8;
+ 	}
+@@ -1178,6 +1178,10 @@
  				break;
  		}
  	}
