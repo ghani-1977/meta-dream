@@ -22,7 +22,7 @@ index 82b5c19..ce947a5 100644
  
  eDVBCIInterfaces *eDVBCIInterfaces::instance = 0;
  
-+static char* readInputCI(int tuner_no)
++char* eDVBCISlot::readInputCI(int tuner_no)
 +{
 +	char id1[] = "NIM Socket";
 +	char id2[] = "Input_Name";
@@ -76,7 +76,7 @@ index 82b5c19..ce947a5 100644
 +	return inputName;
 +}
 +
-+static std::string getTunerLetterDM(int tuner_no)
++std::string eDVBCISlot::getTunerLetterDM(int tuner_no)
 +{
 +	char *srcCI = readInputCI(tuner_no);
 +	if (srcCI) return std::string(srcCI);
@@ -90,7 +90,7 @@ index 82b5c19..ce947a5 100644
  
  	for (eSmartPtrList<eDVBCISlot>::iterator it(m_slots.begin()); it != m_slots.end(); ++it)
 +#ifdef DREAMBOX_DUAL_TUNER
-+		it->setSource(getTunerLetterDM(0));
++		it->setSource(eDVBCISlot::getTunerLetterDM(0));
 +#else
  		it->setSource("A");
 +#endif
@@ -158,3 +158,4 @@ index 1df9994..a2337c6 100644
  };
  
  struct CIPmtHandler
+ 
