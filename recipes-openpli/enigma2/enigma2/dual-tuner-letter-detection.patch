@@ -140,7 +140,7 @@ index 82b5c19..ce947a5 100644
 +#ifdef DREAMBOX_DUAL_TUNER
 +					setInputSource(slot->current_tuner, eDVBCISlot::getTunerLetterDM(slot->current_tuner));
 +#else
- 					setInputSource(slot->current_tuner, eDVBCISlot::getTunerLetter(slot->current_tuner));
+					setInputSource(slot->current_tuner, eDVBCISlot::getTunerLetter(slot->current_tuner));
 +#endif
  
  				if (base_slot != slot)
