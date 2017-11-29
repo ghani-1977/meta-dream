@@ -1,0 +1,74 @@
+diff -Naur enigma2-PLi/data/menu.xml enigma2-persianpros/data/menu.xml
+--- enigma2-PLi/data/menu.xml	2017-11-25 10:23:19.870894000 +0330
++++ enigma2-persianpros/data/menu.xml	2017-11-29 12:01:15.401335713 +0330
+@@ -98,5 +98,6 @@
+ 			<item text="Restart enigma" entryID="restart_enigma"><screen module="Standby" screen="TryQuitMainloop">3</screen></item>
+ 			<item text="Deep standby" requires="DeepstandbySupport" entryID="deep_standby"><screen module="Standby" screen="TryQuitMainloop">1</screen></item>
+ 			<item text="Shutdown" requires="!DeepstandbySupport" entryID="deep_standby"><screen module="Standby" screen="TryQuitMainloop">1</screen></item>
++			<item text="Recovery Mode" requires="RecoveryMode" entryID="maintenance_mode"><screen module="Standby" screen="TryQuitMainloop">16</screen></item>
+ 		</menu>
+ </menu>
+diff -Naur enigma2-PLi/lib/python/Components/Lcd.py enigma2-persianpros/lib/python/Components/Lcd.py
+--- enigma2-PLi/lib/python/Components/Lcd.py	2017-11-25 10:23:19.962893000 +0330
++++ enigma2-persianpros/lib/python/Components/Lcd.py	2017-11-29 11:54:08.396878150 +0330
+@@ -3,6 +3,7 @@
+ from Components.SystemInfo import SystemInfo
+ from Screens.InfoBar import InfoBar
+ from Screens.Screen import Screen
++from enigma import getBoxType
+ 
+ class dummyScreen(Screen):
+ 	skin = """<screen position="0,0" size="0,0" transparent="1">
+@@ -75,7 +76,10 @@
+ 			config.lcd.contrast.addNotifier(setLCDcontrast);
+ 		else:
+ 			config.lcd.contrast = ConfigNothing()
+-			standby_default = 1
++			if getBoxType() in ('dm900','dm920'):
++				standby_default = 4
++			else:
++				standby_default = 1
+ 
+ 		config.lcd.standby = ConfigSlider(default=standby_default, limits=(0, 10))
+ 		config.lcd.standby.addNotifier(setLCDbright);
+diff -Naur enigma2-PLi/lib/python/Components/SystemInfo.py enigma2-persianpros/lib/python/Components/SystemInfo.py
+--- enigma2-PLi/lib/python/Components/SystemInfo.py	2017-11-25 10:23:19.966893000 +0330
++++ enigma2-persianpros/lib/python/Components/SystemInfo.py	2017-11-29 11:58:39.249419915 +0330
+@@ -79,3 +79,4 @@
+ SystemInfo["canFlashWithOfgwrite"] = not HardwareInfo().get_device_model().startswith("dm")
+ SystemInfo["canMultiBoot"] = HardwareInfo().get_device_model() in ('hd51', 'h7', 'vs1500')
+ SystemInfo["canMode12"] = SystemInfo["canMultiBoot"] and '200M' if HardwareInfo().get_device_model() == "h7" else '192M'
++SystemInfo["RecoveryMode"] = fileCheck("/proc/stb/fp/boot_mode")
+diff -Naur enigma2-PLi/lib/python/Screens/Standby.py enigma2-persianpros/lib/python/Screens/Standby.py
+--- enigma2-PLi/lib/python/Screens/Standby.py	2017-11-25 10:23:20.038891000 +0330
++++ enigma2-persianpros/lib/python/Screens/Standby.py	2017-11-29 12:00:45.518108019 +0330
+@@ -202,6 +202,7 @@
+ 			3: _("The user interface of your receiver is restarting"),
+ 			4: _("Your frontprocessor will be upgraded\nPlease wait until your receiver reboots\nThis may take a few minutes"),
+ 			5: _("The user interface of your receiver is restarting\ndue to an error in mytest.py"),
++			16: _("Your receiver is rebooting into Recovery Mode"),
+ 			42: _("Unattended upgrade in progress\nPlease wait until your receiver reboots\nThis may take a few minutes") }.get(retvalue)
+ 		self["text"] = Label(text)
+ 
+@@ -230,6 +231,7 @@
+ 				2: _("Really reboot now?"),
+ 				3: _("Really restart now?"),
+ 				4: _("Really upgrade the frontprocessor and reboot now?"),
++				16: _("Really reboot into Recovery Mode?"),
+ 				42: _("Really upgrade your settop box and reboot now?") }.get(retvalue)
+ 			if text:
+ 				MessageBox.__init__(self, session, reason+text, type = MessageBox.TYPE_YESNO, timeout = timeout, default = default_yes)
+diff -Naur enigma2-PLi/tools/enigma2.sh.in enigma2-persianpros/tools/enigma2.sh.in
+--- enigma2-PLi/tools/enigma2.sh.in	2017-11-25 10:23:20.150889000 +0330
++++ enigma2-persianpros/tools/enigma2.sh.in	2017-11-29 12:02:12.911860163 +0330
+@@ -60,6 +60,10 @@
+ 			echo "config.misc.RestartUI=true" >>/etc/enigma2/settings
+ 		fi
+ 		;;
++	16)
++		echo "rescue" > /proc/stb/fp/boot_mode
++		/sbin/reboot
++		;;
+ 	42)
+ 		# bind the console (when available)
+ 		[ -f /sys/class/vtconsole/vtcon1/bind ] && echo 1 > /sys/class/vtconsole/vtcon1/bind
