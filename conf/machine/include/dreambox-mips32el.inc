@@ -5,6 +5,8 @@ DEFAULTTUNE = "mips32el"
 
 MTD_KERNEL = "mtd2"
 
+PREFERRED_VERSION_libarchive = "3.1.2"
+
 require conf/machine/include/dreambox.inc
 require conf/machine/include/tune-mips32.inc
 
