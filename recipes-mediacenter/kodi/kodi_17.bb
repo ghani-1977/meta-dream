@@ -66,7 +66,7 @@ SRCREV = "661dd08d221f5b2bf509a696a6aca5ee7d45bb27"
 BASEPV = "17.1"
 PV = "${BASEPV}+gitr${SRCPV}"
 SRC_URI = "git://github.com/xbmc/xbmc.git;branch=Krypton \
-           https://repo.voidlinux.eu/distfiles/${BPN}-${BASEPV}-generated-addons.tar.xz;name=addons;unpack=0 \
+           https://repo.voidlinux.eu/distfiles/kodi-${BASEPV}-generated-addons.tar.xz;name=addons;unpack=0 \
            file://0003-configure-don-t-try-to-run-stuff-to-find-tinyxml.patch \
            file://0004-handle-SIGTERM.patch \
            file://0005-add-support-to-read-frequency-output-if-using-intel-.patch \
@@ -144,7 +144,7 @@ def enable_glew(bb, d):
     return ""
 
 do_configure() {
-    tar xf ${WORKDIR}/${BPN}-${BASEPV}-generated-addons.tar.xz -C ${S}/
+    tar xf ${WORKDIR}/kodi-${BASEPV}-generated-addons.tar.xz -C ${S}/
 
     ( for i in $(find ${S} -name "configure.*" ) ; do
        cd $(dirname $i) && gnu-configize --force || true
