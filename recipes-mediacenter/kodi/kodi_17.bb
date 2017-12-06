@@ -171,7 +171,7 @@ do_compile_prepend() {
 
 INSANE_SKIP_${PN} = "rpaths"
 
-FILES_${PN} += "${datadir}/xsessions ${datadir}/icons ${libdir}/xbmc ${datadir}/xbmc"
+FILES_${PN} += "usr/share/kodi/* ${libdir}/kodi/* ${datadir}/xsessions ${datadir}/icons ${libdir}/xbmc ${datadir}/xbmc"
 FILES_${PN}-dbg += "${libdir}/kodi/.debug ${libdir}/kodi/*/.debug ${libdir}/kodi/*/*/.debug ${libdir}/kodi/*/*/*/.debug"
 
 # kodi uses some kind of dlopen() method for libcec so we need to add it manually
