@@ -145,7 +145,7 @@ def enable_glew(bb, d):
 do_configure() {
     tar xf ${WORKDIR}/kodi-${BASEPV}-generated-addons.tar.xz -C ${S}/
 
-    ( for i in $(find ${S} -name "configure.*" ) ; do
+    ( for i in $(find ${S}/m4 -name "configure.*" ) ; do
        cd $(dirname $i) && gnu-configize --force || true
     done )
     ( for f in ${S}/xbmc/interfaces/python/generated/*.cpp; do
