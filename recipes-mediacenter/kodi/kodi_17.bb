@@ -90,8 +90,6 @@ SRC_URI[addons.sha256sum] = "350da57408c27473eaf40e7f544bc94841bf101dc4346085260
 
 inherit autotools-brokensep gettext pythonnative distro_features_check
 
-REQUIRED_DISTRO_FEATURES += "opengl"
-
 S = "${WORKDIR}/git"
 
 # breaks compilation
