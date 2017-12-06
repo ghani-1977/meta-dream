@@ -1,4 +1,4 @@
-require recipes-mediacenter/kodi/kodi_${PV}.bb
+require kodi_${PV}.bb
 
 SRCREV = "${AUTOREV}"
 
