@@ -78,6 +78,7 @@ SRC_URI = "git://github.com/xbmc/xbmc.git;branch=Krypton \
            file://0011-Let-configure-pass-on-unknown-architectures-setting-.patch \
            file://0012-Revert-droid-fix-builds-with-AML-disabled.patch \
            file://0001-change-order-of-detecting-libegl-and-libgles2.patch \
+           file://0014-kodi-platform-support.patch \
 "
 
 SRC_URI_append_libc-musl = " \

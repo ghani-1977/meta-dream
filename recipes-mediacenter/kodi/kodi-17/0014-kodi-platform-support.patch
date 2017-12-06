@@ -1,0 +1,31 @@
+diff --git a/configure.ac b/configure.ac
+index 5bfd1ea..e4faea9 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -619,7 +625,7 @@ case $host in
+      use_neon=yes
+      use_gles=yes
+      use_gl=no
+-     USE_STATIC_FFMPEG=1
++     USE_STATIC_FFMPEG=0
+      ;;
+   aarch64*-*-linux-gnu*|aarch64*-*-linux-uclibc*)
+      target_platform=target_linux
+@@ -633,7 +639,7 @@ case $host in
+        use_gl=no
+        use_gles=yes
+      fi
+-     USE_STATIC_FFMPEG=1
++     USE_STATIC_FFMPEG=0
+      ;;
+   arm*-*linux-android*)
+      target_platform=target_android
+@@ -655,7 +655,7 @@ case $host in
+      use_gles=no
+      use_gl=yes
+      use_sdl=yes
+-     USE_STATIC_FFMPEG=1
++     USE_STATIC_FFMPEG=0
+      ;;
+   *)
+     ARCH=$host_cpu"-"$host_os
