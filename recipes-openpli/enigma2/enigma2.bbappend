@@ -4,6 +4,8 @@ PYTHON_RDEPS += " \
 	python-service-identity \
 "
 
+ENIGMA2_BRANCH ?= "s2x"
+
 SRC_URI_append_dm800 += " \
     file://e2_old_dvbapi.patch \
 "
