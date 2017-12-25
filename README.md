@@ -14,9 +14,9 @@ dm7020hdv2 - kernel 3.2.96 driver 20161019 secondstage 89
 dm7080 - kernel 3.4.113 driver 20171115 secondstage 14
 dm8000 - kernel 3.2.96 driver 20140604a secondstage 84
 ```
-How does it work? Simply with PLi's OE!
+How does it work? Simply with OpenPLi's OE!
 
-Use https://github.com/MastaG/pli-oe-core (rocko branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "pli-oe-core" folder and enter:
+Use https://github.com/OpenPLi/openpli-oe-core (rocko branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
 wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-rocko.sh
 sh Dreamer-rocko.sh
