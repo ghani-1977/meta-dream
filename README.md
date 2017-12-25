@@ -23,13 +23,6 @@ sh Dreamer-rocko.sh
 ```
 You must run Dreamer-rocko.sh only once!
 
-If you're going to build on a distro which features glibc 2.26 or newer (such as Fedora 27 or Arch),
-then you need to add the following line to your local.conf:
-
-LOCALE_GENERATION_WITH_CROSS-LOCALEDEF_forcevariable = "0"
-
-See: https://bugzilla.yoctoproject.org/show_bug.cgi?id=12265
-
 For latest updates you need to open a terminal inside "meta-dream" folder and enter:
 ```
 git pull origin rocko
