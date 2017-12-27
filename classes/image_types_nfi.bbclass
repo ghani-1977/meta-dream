@@ -1,4 +1,4 @@
-IMAGE_CMD_jffs2 = " \
+IMAGE_CMD_jffs2_prepend = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
 		--compression-mode=none \
@@ -18,7 +18,7 @@ IMAGE_CMD_jffs2 = " \
 		> ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.nfi; \
 "
 
-IMAGE_CMD_ubifs = " \
+IMAGE_CMD_ubifs_prepend = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
 		--compression-mode=none \
