@@ -1,4 +1,4 @@
-IMAGE_CMD_jffs2nfi = " \
+IMAGE_CMD_jffs2 = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
 		--compression-mode=none \
@@ -18,7 +18,7 @@ IMAGE_CMD_jffs2nfi = " \
 		> ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.nfi; \
 "
 
-IMAGE_CMD_ubinfi = " \
+IMAGE_CMD_ubifs = " \
 	mkfs.jffs2 \
 		--root=${IMAGE_ROOTFS}/boot \
 		--compression-mode=none \
@@ -59,10 +59,10 @@ IMAGE_CMD_ubinfi = " \
 		> ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.nfi; \
 "
 
-EXTRA_IMAGECMD_jffs2nfi ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
-EXTRA_IMAGECMD_ubinfi ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
+EXTRA_IMAGECMD_jffs2 ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
+EXTRA_IMAGECMD_ubifs ?= "-e ${DREAMBOX_ERASE_BLOCK_SIZE} -n -l"
 
-do_image_jffs2nfi[depends] = "mtd-utils-native:do_populate_sysroot dreambox-buildimage-native:do_populate_sysroot"
-do_image_ubinfi[depends] = "mtd-utils-native:do_populate_sysroot dreambox-buildimage-native:do_populate_sysroot"
+do_image_jffs2[depends] = "mtd-utils-native:do_populate_sysroot dreambox-buildimage-native:do_populate_sysroot"
+do_image_ubifs[depends] = "mtd-utils-native:do_populate_sysroot dreambox-buildimage-native:do_populate_sysroot"
 
-IMAGE_TYPES += "jffs2nfi ubinfi"
+IMAGE_TYPES += "jffs2 ubifs"
