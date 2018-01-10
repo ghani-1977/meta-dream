@@ -3,6 +3,7 @@ OPTIONAL_PACKAGES_remove_dm800 = " \
 	"
 
 OPTIONAL_PACKAGES_append = " \
+	smbnetfs \
 	upx \
 	"
 
