@@ -23,29 +23,6 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
 	dreambox-dvb-modules-${MACHINE}	\
 	v4l-dvb-module-dvb-core	\
 	v4l-dvb-module-stv0299 \
-	firmware-carl9170 \
-	firmware-htc7010 \
-	firmware-htc9271 \
-	firmware-rt2870 \
-	firmware-rt73 \
-	firmware-rtl8712u \
-	firmware-zd1211 \
-	firmware-rtl8192cu \
-	firmware-rt3070 \
-	firmware-mt7601u \
-	firmware-rtl8188eu \
-        \
-	kernel-module-zd1201 \
-        kernel-module-zd1211rw \
-	\
-	rtl8192cu \
-	rt61 \
-	rt73 \
-	rt3070 \
-	rt3573 \
-	rt5572 \
-	rtl871x \
-	rt7777-legacy \
 "
 
 KERNEL_MODULE_AUTOLOAD += "xfs"

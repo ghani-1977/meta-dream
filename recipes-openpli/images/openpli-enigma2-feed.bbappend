@@ -6,4 +6,5 @@ OPTIONAL_PACKAGES_append = " \
 	enigma2-plugin-extensions-backupsuite \
 	smbnetfs \
 	upx \
+	rt7777-legacy \
 	"
