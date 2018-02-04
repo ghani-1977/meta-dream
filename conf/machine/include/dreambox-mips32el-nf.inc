@@ -23,6 +23,13 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
 	dreambox-dvb-modules-${MACHINE}	\
 	v4l-dvb-module-dvb-core	\
 	v4l-dvb-module-stv0299 \
+	firmware-rt73 \
+	firmware-rtl8712u \
+	firmware-zd1211 \
+	\
+	rtl871x \
+	rt73 \
+	kernel-module-zd1211rw \
 "
 
 KERNEL_MODULE_AUTOLOAD += "xfs"
