@@ -18,7 +18,7 @@ How does it work? Simply with OpenPLi's OE!
 
 Use https://github.com/OpenPLi/openpli-oe-core (rocko branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
-wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-rocko.sh
+wget https://raw.githubusercontent.com/PLi-metas/Dreamer/master/Dreamer-rocko.sh
 sh Dreamer-rocko.sh
 ```
 You must run Dreamer-rocko.sh only once!
