@@ -18,7 +18,7 @@ How does it work? Simply with PLi's OE!
 
 Use https://github.com/OpenPLi/openpli-oe-core (develop branch) with Ubuntu 16.04.3 LTS as your base, Open a terminal inside "openpli-oe-core" folder and enter:
 ```
-wget https://raw.githubusercontent.com/DMM-PLi/Dreamer/master/Dreamer-develop.sh
+wget https://raw.githubusercontent.com/PLi-metas/Dreamer/master/Dreamer-develop.sh
 sh Dreamer-develop.sh
 ```
 You must run Dreamer-develop.sh only once!
