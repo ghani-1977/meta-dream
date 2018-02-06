@@ -1,10 +1,8 @@
-RDEPENDS_${PN}_dm500hd = "mtd-utils mtd-utils-ubifs mtd-utils-jffs2 dreambox-buildimage"
-RDEPENDS_${PN}_dm500hdv2 = "mtd-utils mtd-utils-ubifs mtd-utils-jffs2 dreambox-buildimage"
-RDEPENDS_${PN}_dm800 = "mtd-utils mtd-utils-ubifs mtd-utils-jffs2 dreambox-buildimage"
-RDEPENDS_${PN}_dm800se = "mtd-utils mtd-utils-ubifs mtd-utils-jffs2 dreambox-buildimage"
-RDEPENDS_${PN}_dm800sev2 = "mtd-utils mtd-utils-ubifs mtd-utils-jffs2 dreambox-buildimage"
-RDEPENDS_${PN}_dm7020hd = "mtd-utils mtd-utils-ubifs mtd-utils-jffs2 dreambox-buildimage"
-RDEPENDS_${PN}_dm7020hdv2 = "mtd-utils mtd-utils-ubifs mtd-utils-jffs2 dreambox-buildimage"
-RDEPENDS_${PN}_dm8000 = "mtd-utils mtd-utils-ubifs mtd-utils-jffs2 dreambox-buildimage"
-RDEPENDS_${PN}_dm900 = "mtd-utils mtd-utils-ubifs bzip2"
-RDEPENDS_${PN}_dm920 = "mtd-utils mtd-utils-ubifs bzip2"
+RDEPENDS_${PN} = " \
+	mtd-utils \
+	mtd-utils-ubifs \
+	ofgwrite \
+	${@bb.utils.contains("IMAGE_FSTYPES", "tar.bz2", "bzip2" , "", d)} \
+	${@bb.utils.contains("IMAGE_FSTYPES", "jffs2nfi", "mtd-utils-jffs2 dreambox-buildimage" , "", d)} \
+	${@bb.utils.contains("IMAGE_FSTYPES", "ubinfi", "mtd-utils-jffs2 dreambox-buildimage" , "", d)} \
+	"
