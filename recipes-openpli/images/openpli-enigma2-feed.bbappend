@@ -8,6 +8,10 @@ OPTIONAL_PACKAGES_append = " \
 	upx \
 	"
 
+OPTIONAL_PACKAGES_append_dm800 = " \
+	rt7777-legacy \
+	"
+
 OPTIONAL_PACKAGES_append_dm800se = " \
 	rt7777-legacy \
 	"
