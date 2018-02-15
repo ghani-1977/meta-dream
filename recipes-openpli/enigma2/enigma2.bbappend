@@ -11,9 +11,11 @@ SRC_URI_append_dm800 += " \
 inherit upx_compress
 
 SRC_URI_append += " \
+        ${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "\
 	file://use-ioctl-22-for-h265.patch \
 	file://fix-fp-version.patch \
 	file://dual-tuner-letter-detection.patch \
+	", "", d)} \
 "
 
 SRC_URI_append_dm900 += " \
