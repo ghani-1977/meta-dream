@@ -360,6 +360,24 @@ diff -Naur enigma2.orig/lib/dvb/frontendparms.cpp enigma2/lib/dvb/frontendparms.
  
  DEFINE_REF(eDVBFrontendStatus);
  
+diff -Naur enigma2.orig/lib/dvb/frontendparms.h enigma2/lib/dvb/frontendparms.h
+--- enigma2.orig/lib/dvb/frontendparms.h	2017-04-18 10:35:49.971605111 +0200
++++ enigma2/lib/dvb/frontendparms.h	2017-04-18 10:51:35.644119189 +0200
+@@ -14,6 +14,14 @@
+ 
+ #include <linux/dvb/frontend.h>
+ 
++#ifndef NO_STREAM_ID_FILTER
++#define NO_STREAM_ID_FILTER    (~0U)
++#endif
++
++#ifndef DTV_STREAM_ID
++#define DTV_STREAM_ID DTV_ISDBS_TS_ID
++#endif
++
+ class eDVBFrontendParametersSatellite
+ {
+ public
 diff -Naur enigma2.orig/lib/gdi/fblcd.cpp enigma2/lib/gdi/fblcd.cpp
 --- enigma2.orig/lib/gdi/fblcd.cpp	2017-04-18 10:35:49.977604950 +0200
 +++ enigma2/lib/gdi/fblcd.cpp	2017-04-18 10:36:06.407161050 +0200
