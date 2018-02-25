@@ -12,4 +12,4 @@ IMAGE_INSTALL_remove_dm800 = " \
 
 IMAGE_INSTALL_remove_dm800se = " \
 	samba-base \
-"
+	"
