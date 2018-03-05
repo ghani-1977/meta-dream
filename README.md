@@ -10,7 +10,7 @@ dm820 - kernel 3.4.113 driver 20180222 secondstage 18
 dm900 - kernel 3.14.79 driver 20180222 secondstage N/A
 dm920 - kernel 3.14.79 driver 20180222 secondstage N/A
 dm7020hd - kernel 3.2.100 driver 20161019 secondstage 89
-dm7020hdv2 - kernel 3.2.98 driver 20161019 secondstage 89
+dm7020hdv2 - kernel 3.2.100 driver 20161019 secondstage 89
 dm7080 - kernel 3.4.113 driver 20180222 secondstage 14
 dm8000 - kernel 3.2.100 driver 20140604a secondstage 84
 ```
