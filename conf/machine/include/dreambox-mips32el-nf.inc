@@ -35,7 +35,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
 KERNEL_MODULE_AUTOLOAD += "xfs"
 
 MACHINE_EXTRA_RRECOMMENDS = " \
-	gstreamer1.0-plugin-dreambox-dvbmediasink \
+	gstreamer1.0-plugin-dvbmediasink \
 	ntfs-3g \
 	kernel-module-cifs \
 	kernel-module-hmac \
