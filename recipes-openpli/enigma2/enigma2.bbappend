@@ -6,6 +6,7 @@ PYTHON_RDEPS += " \
 
 SRC_URI_append_dm800 += " \
     file://e2_old_dvbapi.patch \
+    file://fix-wrong-driver-date.patch \
 "
 
 inherit upx_compress
