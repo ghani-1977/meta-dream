@@ -1,0 +1,13 @@
+diff --git a/include/bcm_ioctls.h b/include/bcm_ioctls.h
+index 81b0dd0..18f9d2e 100755
+--- a/include/bcm_ioctls.h
++++ b/include/bcm_ioctls.h
+@@ -44,7 +44,7 @@ typedef enum {
+ 	STREAMTYPE_MPEG4_Part2 = 4,
+ 	STREAMTYPE_VC1_SM = 5,
+ 	STREAMTYPE_MPEG1 = 6,
+-	STREAMTYPE_MPEG4_H265 = 7,
++	STREAMTYPE_MPEG4_H265 = 22,
+ 	STREAMTYPE_VB8 = 8,
+ 	STREAMTYPE_VB9 = 9,
+ 	STREAMTYPE_XVID = 10,
