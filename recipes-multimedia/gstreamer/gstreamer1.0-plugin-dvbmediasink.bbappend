@@ -1,1 +1,1 @@
-SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmediasink;branch=openatv-dev;protocol=git"
+SRC_URI = "${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmediasink;branch=openatv-dev;protocol=git", "git://github.com/OpenPLi/gst-plugin-dvbmediasink.git;branch=gst-1.0", d)}"
